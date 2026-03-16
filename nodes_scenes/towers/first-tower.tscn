@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dk2cck1fkdd6b"]
+
+[ext_resource type="Texture2D" uid="uid://dv3qdku1qkoby" path="res://textures/towers/7-test.jpg" id="1_lotmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8uyy"]
+
+[node name="FirstTower" type="Node2D" unique_id=1113452276]
+
+[node name="body_sprite" type="Sprite2D" parent="." unique_id=1430287112]
+position = Vector2(-2.3841858e-07, -1.1920929e-07)
+scale = Vector2(0.025000002, 0.017683465)
+texture = ExtResource("1_lotmh")
+
+[node name="Area" type="Area2D" parent="." unique_id=616568333]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Area" unique_id=109508642]
+shape = SubResource("RectangleShape2D_x8uyy")
