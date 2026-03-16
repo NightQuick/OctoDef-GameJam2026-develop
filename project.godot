@@ -13,6 +13,10 @@ config_version=5
 config/name="OctoDef"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[autoload]
+
+Constants="*uid://ck0ss4f0jd4aw"
+
 [dotnet]
 
 project/assembly_name="OctoDef"
