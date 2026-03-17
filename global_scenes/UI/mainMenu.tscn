@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cgimysfyu14mt"]
+
+[ext_resource type="Script" uid="uid://dg55yk10p2621" path="res://scripts/UI/mainMenu.gd" id="1_2hbhx"]
+[ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="1_giutp"]
+[ext_resource type="Texture2D" uid="uid://dv3qdku1qkoby" path="res://textures/towers/7-test.jpg" id="2_mgkrl"]
+[ext_resource type="Script" uid="uid://k0gck71e48xq" path="res://scripts/UI/parallaxMovment.gd" id="3_w701i"]
+
+[node name="Menu" type="Node2D" unique_id=934215902]
+script = ExtResource("1_2hbhx")
+
+[node name="background" type="Sprite2D" parent="." unique_id=342365649]
+position = Vector2(960, 540)
+scale = Vector2(1.548387, 1.547278)
+texture = ExtResource("1_giutp")
+
+[node name="logo" type="Sprite2D" parent="." unique_id=597138468]
+position = Vector2(392, 175.99998)
+scale = Vector2(0.6316672, 0.12658429)
+texture = ExtResource("2_mgkrl")
+
+[node name="Parallax" type="Parallax2D" parent="." unique_id=1936748383]
+repeat_size = Vector2(1920, 0)
+follow_viewport = false
+script = ExtResource("3_w701i")
+
+[node name="testParallaxLayer" type="Sprite2D" parent="Parallax" unique_id=1927328825]
+position = Vector2(960, 864)
+scale = Vector2(2.4, 0.3763254)
+texture = ExtResource("2_mgkrl")
+
+[node name="playButton" type="Button" parent="." unique_id=93313552]
+offset_left = 192.0
+offset_top = 288.0
+offset_right = 660.6012
+offset_bottom = 384.0
+text = "Играть"
+
+[node name="achivementsButton" type="Button" parent="." unique_id=1194592237]
+offset_left = 192.0
+offset_top = 600.0
+offset_right = 660.6012
+offset_bottom = 696.0
+text = "Ачивки"
+
+[node name="settingsButton" type="Button" parent="." unique_id=598429055]
+offset_left = 192.0
+offset_top = 448.0
+offset_right = 660.6012
+offset_bottom = 544.0
+text = "Настройки"
+
+[node name="exitButton" type="Button" parent="." unique_id=690464905]
+offset_left = 192.0
+offset_top = 760.0
+offset_right = 660.6012
+offset_bottom = 856.0
+text = "Выход"
