@@ -2,16 +2,16 @@ extends CharacterBody2D
 
 @onready var NavigationAgent: NavigationAgent2D = $NavigationAgent2D
 #@onready 
-var self_speed = 2
+@export var self_speed = 20
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var mouse_position = get_global_mouse_position()
 	NavigationAgent.target_position = mouse_position
 	
 	
 	var self_position = global_position
 	var next_path_position = NavigationAgent.get_next_path_position()
-	var new_velocity = self_position.direction_to(next_path_position) * self_position
+	var new_velocity = self_position.direction_to(next_path_position) * self_speed
 	var LKM = Input.is_action_just_pressed("mouse_left_button") 
 	if LKM:
 		print("2132321")
