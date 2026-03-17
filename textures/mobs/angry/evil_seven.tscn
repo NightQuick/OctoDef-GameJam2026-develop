@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dof8k58afptyk"]
+
+[ext_resource type="Script" uid="uid://c4wpgp88xn55i" path="res://scripts/mobs/angry/evil_seven.gd" id="1_appt4"]
+[ext_resource type="Texture2D" uid="uid://dv3qdku1qkoby" path="res://textures/towers/7-test.jpg" id="1_y2685"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_appt4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_appt4"]
+radius = 37.01351
+
+[node name="EvilSeven" type="CharacterBody2D" unique_id=1312135262]
+script = ExtResource("1_appt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=354808271]
+shape = SubResource("CapsuleShape2D_appt4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=318114283]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("1_y2685")
+
+[node name="view_area" type="Area2D" parent="." unique_id=1405583502]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="view_area" unique_id=235710458]
+shape = SubResource("CircleShape2D_appt4")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1174018483]
+path_desired_distance = 10.0
+path_postprocessing = 1
+avoidance_enabled = true
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0.09803922, 0.44313726)
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
