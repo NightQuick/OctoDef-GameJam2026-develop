@@ -26,10 +26,14 @@ shape = SubResource("CapsuleShape2D_x8uyy")
 [node name="head" type="Node" parent="." unique_id=36463511]
 
 [node name="head_sprite" type="Sprite2D" parent="head" unique_id=1179410562]
-modulate = Color(1, 0, 0, 1)
+modulate = Color(0, 0.7294118, 0.69411767, 1)
 position = Vector2(11, -13.000001)
 scale = Vector2(0.03437499, 0.0032051306)
 texture = ExtResource("1_lotmh")
+
+[node name="Marker2D" type="Marker2D" parent="head" unique_id=209990785]
+position = Vector2(20, -13)
+rotation = -1.5707964
 
 [connection signal="body_entered" from="body/Area" to="." method="_on_area_body_entered"]
 [connection signal="body_exited" from="body/Area" to="." method="_on_area_body_exited"]
