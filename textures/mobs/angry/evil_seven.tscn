@@ -17,7 +17,7 @@ script = ExtResource("1_appt4")
 shape = SubResource("CapsuleShape2D_appt4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=318114283]
-modulate = Color(1, 0, 1, 1)
+modulate = Color(18.892157, 0, 18.892157, 1)
 scale = Vector2(0.007, 0.007)
 texture = ExtResource("1_y2685")
 
@@ -32,6 +32,7 @@ path_max_distance = 10.0
 path_postprocessing = 1
 debug_enabled = true
 debug_use_custom = true
-debug_path_custom_color = Color(0.84646726, 0, 0, 0.3019608)
+debug_path_custom_color = Color(0.84705883, 0, 0, 0.9764706)
+debug_path_custom_point_size = 1.0
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
