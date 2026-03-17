@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://c1b3ot6f60gt7"]
 
 [ext_resource type="Texture2D" uid="uid://be7ru0sjy7axv" path="res://textures/TilesMap/tilemap-1.png" id="1_pe88y"]
+[ext_resource type="PackedScene" uid="uid://dof8k58afptyk" path="res://textures/mobs/angry/evil_seven.tscn" id="2_vwuhv"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_pe88y"]
-vertices = PackedVector2Array(16, 0, 0, 8, -16, 0, 0, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vwuhv"]
+vertices = PackedVector2Array(-0.1328125, 1.90625, -6.046875, 4.9765625, -10.0546875, 2.96875, -4.046875, -0.03125, 0.2265625, -1.875, -9.96875, -3.015625, -5.9453125, -5.03125, 4.3671875, 0.1328125, 9.9921875, 3, 5.9921875, 5, 5.7890625, -5.109375, 9.9921875, -3)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 6, 4), PackedInt32Array(7, 8, 9, 0, 4), PackedInt32Array(10, 11, 7, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-9.967445, -3.0162773, -4.043646, -0.032349586, -10.0580225, 2.9709888, -6.046727, 4.9766364, -0.12939644, 1.9085999, 5.9949675, 5.0025163, 9.993322, 3.0033388, 4.367136, 0.12939644, 9.993324, -3.003338, 5.7879314, -5.1060343, 0.22644424, -1.8762512, -5.9432096, -5.028395)])
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwuhv"]
@@ -13,7 +14,7 @@ texture = ExtResource("1_pe88y")
 texture_region_size = Vector2i(32, 16)
 0:0/0 = 0
 1:0/0 = 0
-1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_pe88y")
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vwuhv")
 0:1/0 = 0
 1:1/0 = 0
 0:2/0 = 0
@@ -36,4 +37,7 @@ tile_set = SubResource("TileSet_qg6l2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1175770694]
 position = Vector2(136, 72)
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
+
+[node name="EvilSeven" parent="." unique_id=1312135262 instance=ExtResource("2_vwuhv")]
+position = Vector2(241, 6)
