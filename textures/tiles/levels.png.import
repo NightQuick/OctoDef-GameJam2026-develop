@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be7ru0sjy7axv"
-path="res://.godot/imported/tilemap-1.png-f717257724ef281db081f332f9729b18.ctex"
+uid="uid://basp2kclrk2lt"
+path="res://.godot/imported/levels.png-4ea53e124c110bd4aec2fad9793adb7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/TilesMap/tilemap-1.png"
-dest_files=["res://.godot/imported/tilemap-1.png-f717257724ef281db081f332f9729b18.ctex"]
+source_file="res://textures/tiles/levels.png"
+dest_files=["res://.godot/imported/levels.png-4ea53e124c110bd4aec2fad9793adb7a.ctex"]
 
 [params]
 
