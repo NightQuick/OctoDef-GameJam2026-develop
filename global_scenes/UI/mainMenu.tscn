@@ -49,9 +49,14 @@ offset_right = 660.6012
 offset_bottom = 544.0
 text = "Настройки"
 
-[node name="exitButton" type="Button" parent="." unique_id=690464905]
+[node name="exitButton" type="Button" parent="." unique_id=520583549]
 offset_left = 192.0
 offset_top = 760.0
 offset_right = 660.6012
 offset_bottom = 856.0
 text = "Выход"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="achivementsButton" to="." method="_on_achivements_button_pressed"]
+[connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="exitButton" to="." method="_on_exit_button_pressed"]
