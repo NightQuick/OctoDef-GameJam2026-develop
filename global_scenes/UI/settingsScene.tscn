@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://doj62alyn4td1"]
+
+[ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="1_8daw3"]
+
+[node name="Menu" type="Node2D" unique_id=934215902]
+
+[node name="background" type="Sprite2D" parent="." unique_id=342365649]
+position = Vector2(960, 540)
+scale = Vector2(1.548387, 1.547278)
+texture = ExtResource("1_8daw3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=871694236]
+custom_minimum_size = Vector2(800, 1000)
+offset_left = 26.0
+offset_top = 40.0
+offset_right = 1890.0
+offset_bottom = 1040.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=807896155]
+custom_minimum_size = Vector2(930, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=2012069086]
+layout_mode = 2
+text = "fafaf"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1378742195]
+custom_minimum_size = Vector2(930, 0)
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/VBoxContainer2" unique_id=987299730]
+layout_mode = 2
+
+[connection signal="ready" from="." to="." method="_on_ready"]
