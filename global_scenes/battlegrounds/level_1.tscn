@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://basp2kclrk2lt" path="res://textures/tiles/levels.png" id="2_d4knk"]
 [ext_resource type="PackedScene" uid="uid://dof8k58afptyk" path="res://nodes_scenes/mobs/angry/evil_seven.tscn" id="2_vwuhv"]
 [ext_resource type="PackedScene" uid="uid://dk2cck1fkdd6b" path="res://nodes_scenes/towers/first_tower.tscn" id="4_17k8v"]
+[ext_resource type="PackedScene" uid="uid://doaeeshwvxsxl" path="res://nodes_scenes/UI/battle_inventory.tscn" id="5_17k8v"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d4knk"]
 vertices = PackedVector2Array(4.046875, 0.7421875, 9.9921875, 3, 5.9921875, 5, 1.1328125, 1.875, 5.7890625, -5.109375, 9.9921875, -3, 4.0078125, -0.7109375, 1.359375, -1.7109375, -6.046875, 4.9765625, -10.0546875, 2.96875, -4.3359375, 0.6484375, -1.0703125, 1.875, -4.203125, -0.546875, -9.96875, -3.015625, -5.9453125, -5.03125, -1.1328125, -1.75)
@@ -94,3 +95,5 @@ aggr_range = 4.0
 [node name="FirstTower2" parent="." unique_id=1755517477 instance=ExtResource("4_17k8v")]
 position = Vector2(256, 136)
 aggr_range = 4.0
+
+[node name="BattleInventory" parent="." unique_id=1844087348 instance=ExtResource("5_17k8v")]

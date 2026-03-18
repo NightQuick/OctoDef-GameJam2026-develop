@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_loehv"]
 radius = 20.0
 
-[node name="FirstTower" type="Node2D" unique_id=1113452276]
+[node name="FirstTower" type="Node2D" unique_id=1113452276 groups=["tower"]]
 script = ExtResource("1_x8uyy")
 
 [node name="Body" type="Area2D" parent="." unique_id=1220535552]

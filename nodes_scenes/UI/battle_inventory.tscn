@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://doaeeshwvxsxl"]
+
+[ext_resource type="Texture2D" uid="uid://b7hhapovqn1le" path="res://textures/UI/slot.png" id="1_mc2tu"]
+[ext_resource type="Script" uid="uid://ccxh0be470kad" path="res://scripts/UI/battle_inventory.gd" id="1_ng0jd"]
+[ext_resource type="Texture2D" uid="uid://bxif4yo3gr5vm" path="res://textures/towers/towers_head.png" id="2_ng0jd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng0jd"]
+size = Vector2(100, 100)
+
+[node name="BattleInventory" type="CanvasLayer" unique_id=1844087348]
+script = ExtResource("1_ng0jd")
+
+[node name="SlotTemplate" type="Sprite2D" parent="." unique_id=456034505]
+position = Vector2(1004, 883)
+scale = Vector2(4, 4)
+texture = ExtResource("1_mc2tu")
+
+[node name="SlotTemplate" type="Button" parent="SlotTemplate" unique_id=655111421]
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 17.0
+offset_bottom = 17.0
+flat = true
+
+[node name="Texture" type="Sprite2D" parent="SlotTemplate" unique_id=1750552522]
+texture = ExtResource("2_ng0jd")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Mouse" type="Area2D" parent="." unique_id=1590457923]
+
+[node name="Shape" type="CollisionShape2D" parent="Mouse" unique_id=1948795204]
+shape = SubResource("RectangleShape2D_ng0jd")
+
+[connection signal="pressed" from="SlotTemplate/SlotTemplate" to="." method="_on_slot_template_pressed"]
+[connection signal="body_entered" from="Mouse" to="." method="_on_mouse_body_entered"]
+[connection signal="body_exited" from="Mouse" to="." method="_on_mouse_body_exited"]
