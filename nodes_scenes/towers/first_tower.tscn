@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ccfl4bkf31duk" path="res://textures/towers/towers_body.png" id="2_loehv"]
 [ext_resource type="Texture2D" uid="uid://bxif4yo3gr5vm" path="res://textures/towers/towers_head.png" id="3_fc3n8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_loehv"]
-radius = 20.0
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_loehv"]
+points = PackedVector2Array(5.707107, 5.606603, -11.263458, 11.263458, -5.606603, -5.707107, 11.363962, -11.363962)
 
 [node name="FirstTower" type="Node2D" unique_id=1113452276 groups=["tower"]]
 script = ExtResource("1_x8uyy")
@@ -13,7 +13,10 @@ script = ExtResource("1_x8uyy")
 [node name="Body" type="Area2D" parent="." unique_id=1220535552]
 
 [node name="Range" type="CollisionShape2D" parent="Body" unique_id=1544899929]
-shape = SubResource("CircleShape2D_loehv")
+position = Vector2(0, 8.000001)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("ConvexPolygonShape2D_loehv")
 
 [node name="Texture" type="Sprite2D" parent="Body" unique_id=1777919590]
 texture = ExtResource("2_loehv")

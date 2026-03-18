@@ -90,7 +90,7 @@ position = Vector2(282, 45)
 
 [node name="FirstTower" parent="." unique_id=1113452276 instance=ExtResource("4_17k8v")]
 position = Vector2(336, 128)
-aggr_range = 4.0
+aggr_range = 5.0
 
 [node name="FirstTower2" parent="." unique_id=1755517477 instance=ExtResource("4_17k8v")]
 position = Vector2(256, 136)
