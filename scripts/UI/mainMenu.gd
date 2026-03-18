@@ -25,3 +25,4 @@ func _on_exit_button_pressed() -> void:
 
 func quitGame():
 	get_tree().quit()
+	

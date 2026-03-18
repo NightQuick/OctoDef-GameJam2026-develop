@@ -1,20 +1,37 @@
 [gd_scene format=3 uid="uid://doj62alyn4td1"]
 
 [ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="1_8daw3"]
+[ext_resource type="Script" uid="uid://d31i1qkqroyjn" path="res://scripts/UI/settings.gd" id="1_dprtq"]
+[ext_resource type="Script" uid="uid://cgo7p6x0iv0dv" path="res://scripts/UI/button.gd" id="2_f5r45"]
 
-[node name="Menu" type="Node2D" unique_id=934215902]
+[node name="settings" type="Node2D" unique_id=934215902]
+script = ExtResource("1_dprtq")
 
 [node name="background" type="Sprite2D" parent="." unique_id=342365649]
-position = Vector2(960, 540)
-scale = Vector2(1.548387, 1.547278)
+position = Vector2(960.00006, 540.00006)
+scale = Vector2(1.548387, 1.5472779)
 texture = ExtResource("1_8daw3")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="background" unique_id=494881930]
+follow_viewport_enabled = true
+
+[node name="Button" type="Button" parent="." unique_id=875373123]
+offset_left = 150.40002
+offset_top = 317.09998
+offset_right = 328.0
+offset_bottom = 376.0
+script = ExtResource("2_f5r45")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=871694236]
+clip_contents = true
 custom_minimum_size = Vector2(800, 1000)
-offset_left = 26.0
-offset_top = 40.0
-offset_right = 1890.0
-offset_bottom = 1040.0
+offset_left = 24.0
+offset_top = 32.0
+offset_right = 1888.0
+offset_bottom = 1032.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=807896155]
 custom_minimum_size = Vector2(930, 0)
@@ -31,4 +48,9 @@ layout_mode = 2
 [node name="HSlider" type="HSlider" parent="HBoxContainer/VBoxContainer2" unique_id=987299730]
 layout_mode = 2
 
+[node name="resolutionDropbox" type="MenuButton" parent="HBoxContainer/VBoxContainer2" unique_id=1019008866]
+layout_mode = 2
+text = "разрешение"
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
