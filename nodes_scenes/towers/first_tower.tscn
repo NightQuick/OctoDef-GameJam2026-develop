@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dk2cck1fkdd6b"]
+
+[ext_resource type="Script" uid="uid://dsbrm4apt5we3" path="res://scripts/towers/first_tower.gd" id="1_x8uyy"]
+[ext_resource type="Texture2D" uid="uid://ccfl4bkf31duk" path="res://textures/towers/towers_body.png" id="2_loehv"]
+[ext_resource type="Texture2D" uid="uid://bxif4yo3gr5vm" path="res://textures/towers/towers_head.png" id="3_fc3n8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_loehv"]
+radius = 20.0
+
+[node name="FirstTower" type="Node2D" unique_id=1113452276]
+script = ExtResource("1_x8uyy")
+
+[node name="Body" type="Area2D" parent="." unique_id=1220535552]
+
+[node name="Range" type="CollisionShape2D" parent="Body" unique_id=1544899929]
+shape = SubResource("CircleShape2D_loehv")
+
+[node name="Texture" type="Sprite2D" parent="Body" unique_id=1777919590]
+texture = ExtResource("2_loehv")
+
+[node name="Head" type="Sprite2D" parent="." unique_id=1357277521]
+position = Vector2(0, -19)
+texture = ExtResource("3_fc3n8")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]
+[connection signal="body_exited" from="Body" to="." method="_on_body_body_exited"]
