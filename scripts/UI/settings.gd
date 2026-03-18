@@ -29,13 +29,5 @@ func change_resolution(width: int, height: int):
 	# Устанавливаем новый размер окна
 	window.content_scale_size = Vector2i(width, height)
 	get_viewport().size=Vector2i(width, height)
-	# Центрируем окно на экране (опционально)
-	center_window()
 	
 	print("Разрешение изменено на: ", width, "x", height)
-
-func center_window():
-	var window = get_window()
-	var screen_center = DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2
-	var window_size = window.get_size_with_decorations()
-	window.position = screen_center - window_size / 2
