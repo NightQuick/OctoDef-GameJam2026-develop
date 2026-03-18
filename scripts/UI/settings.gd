@@ -27,7 +27,8 @@ func change_resolution(width: int, height: int):
 	var window = get_window()
 	
 	# Устанавливаем новый размер окна
-	window.content_scale_size = Vector2i(width, height)
-	get_viewport().size=Vector2i(width, height)
+	get_tree().root.content_scale_size=Vector2i(width,height)
+	#window.content_scale_size = Vector2i(width, height)
+	#get_viewport().size=Vector2i(width, height)
 	
 	print("Разрешение изменено на: ", width, "x", height)

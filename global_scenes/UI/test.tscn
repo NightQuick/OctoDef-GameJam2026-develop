@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dmwg7wnx7b64o"]
+
+[ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="1_g2ajr"]
+[ext_resource type="Script" uid="uid://wbxevwtkbbja" path="res://scripts/UI/v_box_container.gd" id="1_x2jbb"]
+
+[node name="Test" type="Node2D" unique_id=1151650381]
+
+[node name="background" type="Sprite2D" parent="." unique_id=1573637662]
+position = Vector2(960, 540)
+scale = Vector2(1.548387, 1.547278)
+texture = ExtResource("1_g2ajr")
+
+[node name="Control" type="Control" parent="." unique_id=2099351014]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=743073913]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=588802625]
+layout_mode = 2
+alignment = 1
+script = ExtResource("1_x2jbb")
+
+[node name="OptionButton" type="OptionButton" parent="Control/HBoxContainer/VBoxContainer" unique_id=2122331730]
+layout_mode = 2
+
+[connection signal="ready" from="." to="Control/HBoxContainer/VBoxContainer" method="_on_test_ready"]
+[connection signal="item_selected" from="Control/HBoxContainer/VBoxContainer/OptionButton" to="Control/HBoxContainer/VBoxContainer" method="_on_option_button_item_selected"]
