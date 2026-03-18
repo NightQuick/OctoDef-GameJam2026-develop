@@ -8,10 +8,10 @@ radius = 4.0
 height = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_appt4"]
-radius = 9.055386
 
 [node name="EvilSeven" type="CharacterBody2D" unique_id=1312135262]
 script = ExtResource("1_appt4")
+type_of_attack = "tank"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=354808271]
 shape = SubResource("CapsuleShape2D_appt4")
