@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var mouse_position = Vector2(0, 0) 
 @onready var selected_type_attack
 
+
+
 func _ready() -> void:
 	match type_of_attack:
 		"tank": print(name,    ": создан класс танк"); selected_type_attack = type_of_attack;\
