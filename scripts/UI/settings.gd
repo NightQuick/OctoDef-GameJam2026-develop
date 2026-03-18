@@ -1,34 +1,34 @@
 extends Node2D
-@onready var resolutionDropbox=$HBoxContainer/VBoxContainer2/resolutionDropbox
+@onready var resolution_dropbox: OptionButton = $settingsChangers/resolution/resolutionDropbox
+
 
 func _on_ready() -> void:
 	for currentResolution in Constants.listResolutions:
-		var currentResolutionText=str(currentResolution[0])+'x'+str(currentResolution[1])+" ("+str(currentResolution[2]+")")
-		resolutionDropbox.get_popup().add_item(currentResolutionText)
-	resolutionDropbox.get_popup().id_pressed.connect(_on_popup_menu_item_pressed)
+		resolution_dropbox.add_item(currentResolution)
 	
-func _on_popup_menu_item_pressed(id: int):
-	var pressedText=resolutionDropbox.get_popup().get_item_text(id)
-	resolutionDropbox.text=pressedText
-	pressedText=pressedText.split(" ")
-	pressedText=pressedText[0].split('x')
-	var resolution=[int(pressedText[0]),int(pressedText[1])]
 	
-	var window = get_window()
-	
-	# ВАЖНО: Проверяем режим окна
-	print("Текущий режим окна: ", window.mode)
-	print("Полноэкранный режим? ", window.mode == Window.MODE_FULLSCREEN)
-	
-	change_resolution(resolution[0],resolution[1])
 
-func change_resolution(width: int, height: int):
-	# Получаем текущее окно
-	var window = get_window()
+func change_resolution(resolution):
 	
-	# Устанавливаем новый размер окна
-	get_tree().root.content_scale_size=Vector2i(width,height)
-	#window.content_scale_size = Vector2i(width, height)
-	#get_viewport().size=Vector2i(width, height)
+	var resolutionToChange=resolution.split('x')
+	var width=float(resolutionToChange[0])/1920
+	var height=float(resolutionToChange[1])/1080
 	
-	print("Разрешение изменено на: ", width, "x", height)
+	$".".scale=Vector2(width,height)
+
+
+func _on_resolution_dropbox_item_selected(index: int) -> void:
+	var resolution= resolution_dropbox.get_item_text(index)
+	change_resolution(resolution)
+
+
+func _on_v_sync_check_box_toggled(toggled_on: bool) -> void:
+	DisplayServer.window_set_vsync_mode(int(toggled_on))
+	match toggled_on:
+		true:$settingsChangers/Vsync/VSyncCheckBox.text="Вкл."
+		
+		false:$settingsChangers/Vsync/VSyncCheckBox.text="Выкл."
+
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	$settingsChangers/volume/volumeLevel.text=str(int(value))+'%'

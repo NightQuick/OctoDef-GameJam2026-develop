@@ -20,7 +20,7 @@ func moveParallax(parallaxNode,changeValue,ratio,coordType=['x','y']):
 		currentPosition.y+=changeValue[1]
 		parallaxNode.screen_offset=currentPosition
 	elif (coordType=='x'):
-		print(changeValue)
+		
 		currentPosition.x+=changeValue
 		parallaxNode.screen_offset=currentPosition
 	elif (coordType=='y'):

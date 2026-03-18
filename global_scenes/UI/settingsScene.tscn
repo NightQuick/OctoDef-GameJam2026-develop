@@ -12,54 +12,75 @@ position = Vector2(960.00006, 540.00006)
 scale = Vector2(1.548387, 1.5472779)
 texture = ExtResource("1_8daw3")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="background" unique_id=494881930]
-follow_viewport_enabled = true
+[node name="debugButton" type="Button" parent="." unique_id=1917240809]
+offset_left = 108.0
+offset_top = 976.0
+offset_right = 126.0
+offset_bottom = 1007.0
+text = "7"
 
-[node name="Button" type="Button" parent="." unique_id=875373123]
-offset_left = 150.40002
-offset_top = 317.09998
-offset_right = 328.0
-offset_bottom = 376.0
-script = ExtResource("2_f5r45")
-
-[node name="options" type="Control" parent="." unique_id=899284570]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="options" unique_id=871694236]
-clip_contents = true
-custom_minimum_size = Vector2(800, 1000)
-layout_mode = 0
-offset_left = 24.0
+[node name="settingsChangers" type="VBoxContainer" parent="." unique_id=1378742195]
+custom_minimum_size = Vector2(930, 0)
+offset_left = 64.0
 offset_top = 32.0
-offset_right = 1888.0
+offset_right = 1864.0
 offset_bottom = 1032.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+
+[node name="volume" type="HBoxContainer" parent="settingsChangers" unique_id=1667386935]
+layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="options/HBoxContainer" unique_id=807896155]
-custom_minimum_size = Vector2(930, 0)
+[node name="volumeLabel" type="Label" parent="settingsChangers/volume" unique_id=808041591]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+text = "Громкость"
+
+[node name="volumeLevel" type="Label" parent="settingsChangers/volume" unique_id=1061959295]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+
+[node name="volumeSlider" type="HSlider" parent="settingsChangers/volume" unique_id=987299730]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+value = 100.0
+
+[node name="resolution" type="HBoxContainer" parent="settingsChangers" unique_id=1217868870]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="options/HBoxContainer/VBoxContainer" unique_id=2012069086]
+[node name="resolutionLabel" type="Label" parent="settingsChangers/resolution" unique_id=1674820873]
+custom_minimum_size = Vector2(1600, 0)
 layout_mode = 2
-text = "fafaf"
+text = "Разрешение"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="options/HBoxContainer" unique_id=1378742195]
-custom_minimum_size = Vector2(930, 0)
-layout_mode = 2
-
-[node name="HSlider" type="HSlider" parent="options/HBoxContainer/VBoxContainer2" unique_id=987299730]
+[node name="resolutionDropbox" type="OptionButton" parent="settingsChangers/resolution" unique_id=1680115472]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="resolutionDropbox" type="MenuButton" parent="options/HBoxContainer/VBoxContainer2" unique_id=1019008866]
+[node name="Vsync" type="HBoxContainer" parent="settingsChangers" unique_id=1290037728]
 layout_mode = 2
-text = "разрешение"
+
+[node name="VSyncLabel" type="Label" parent="settingsChangers/Vsync" unique_id=253899974]
+custom_minimum_size = Vector2(1720, 0)
+layout_mode = 2
+text = "V-Sync"
+
+[node name="VSyncCheckBox" type="CheckBox" parent="settingsChangers/Vsync" unique_id=871954906]
+layout_mode = 2
+button_mask = 3
+text = "Выкл."
+
+[node name="backToMainMenuButton" type="Button" parent="." unique_id=875373123]
+offset_left = 1680.0
+offset_top = 992.0
+offset_right = 1857.6
+offset_bottom = 1050.9
+text = "Назад"
+script = ExtResource("2_f5r45")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="value_changed" from="settingsChangers/volume/volumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="item_selected" from="settingsChangers/resolution/resolutionDropbox" to="." method="_on_resolution_dropbox_item_selected"]
+[connection signal="toggled" from="settingsChangers/Vsync/VSyncCheckBox" to="." method="_on_v_sync_check_box_toggled"]
+[connection signal="pressed" from="backToMainMenuButton" to="backToMainMenuButton" method="_on_pressed"]

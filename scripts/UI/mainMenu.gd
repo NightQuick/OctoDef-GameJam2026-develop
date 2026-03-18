@@ -4,6 +4,7 @@ func _on_ready() -> void:
 	pass
 	
 func _input(event): if event is InputEventMouseMotion:
+	print(event)
 	var relative= event.relative
 	$Parallax.moveParallax($Parallax,relative.x,0.5,'x')
 
