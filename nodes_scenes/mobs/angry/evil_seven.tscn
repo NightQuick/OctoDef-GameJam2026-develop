@@ -1,11 +1,47 @@
 [gd_scene format=3 uid="uid://dof8k58afptyk"]
 
 [ext_resource type="Script" uid="uid://c4wpgp88xn55i" path="res://scripts/mobs/angry/evil_seven.gd" id="1_appt4"]
-[ext_resource type="Texture2D" uid="uid://dv3qdku1qkoby" path="res://textures/towers/7-test.jpg" id="1_y2685"]
+[ext_resource type="Texture2D" uid="uid://bys0vxk4ww77a" path="res://textures/mobs/mobs.png" id="2_pxy6e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_appt4"]
 radius = 4.0
 height = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_707bo"]
+atlas = ExtResource("2_pxy6e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ht8f"]
+atlas = ExtResource("2_pxy6e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khrtw"]
+atlas = ExtResource("2_pxy6e")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_000xv"]
+atlas = ExtResource("2_pxy6e")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mb3xy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_707bo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ht8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khrtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_000xv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_appt4"]
 radius = 9.055386
@@ -16,10 +52,10 @@ script = ExtResource("1_appt4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=354808271]
 shape = SubResource("CapsuleShape2D_appt4")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=318114283]
-modulate = Color(18.892157, 0, 18.892157, 1)
-scale = Vector2(0.007, 0.007)
-texture = ExtResource("1_y2685")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2142879240]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_mb3xy")
+autoplay = "default"
 
 [node name="view_area" type="Area2D" parent="." unique_id=1405583502]
 

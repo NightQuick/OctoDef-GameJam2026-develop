@@ -27,5 +27,8 @@ texture = ExtResource("3_fc3n8")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
+[node name="Attack" type="Timer" parent="." unique_id=661568946]
+
 [connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]
 [connection signal="body_exited" from="Body" to="." method="_on_body_body_exited"]
+[connection signal="timeout" from="Attack" to="." method="_on_attack_timeout"]
