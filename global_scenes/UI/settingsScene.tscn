@@ -1,91 +1,6 @@
 [gd_scene format=3 uid="uid://doj62alyn4td1"]
 
 [ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="1_8daw3"]
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://d31i1qkqroyjn" path="res://scripts/UI/settings.gd" id="1_dprtq"]
-[ext_resource type="Script" uid="uid://cgo7p6x0iv0dv" path="res://scripts/UI/button.gd" id="2_f5r45"]
-
-[node name="settings" type="Node2D" unique_id=934215902]
-script = ExtResource("1_dprtq")
-
-[node name="background" type="Sprite2D" parent="." unique_id=342365649]
-position = Vector2(960.00006, 540.00006)
-scale = Vector2(1.548387, 1.5472779)
-texture = ExtResource("1_8daw3")
-
-[node name="debugButton" type="Button" parent="." unique_id=1917240809]
-offset_left = 108.0
-offset_top = 976.0
-offset_right = 126.0
-offset_bottom = 1007.0
-text = "7"
-
-[node name="settingsChangers" type="VBoxContainer" parent="." unique_id=1378742195]
-custom_minimum_size = Vector2(930, 0)
-offset_left = 64.0
-offset_top = 32.0
-offset_right = 1864.0
-offset_bottom = 1032.0
-
-[node name="volume" type="HBoxContainer" parent="settingsChangers" unique_id=1667386935]
-layout_mode = 2
-alignment = 1
-
-[node name="volumeLabel" type="Label" parent="settingsChangers/volume" unique_id=808041591]
-custom_minimum_size = Vector2(450, 0)
-layout_mode = 2
-text = "Громкость"
-
-[node name="volumeLevel" type="Label" parent="settingsChangers/volume" unique_id=1061959295]
-custom_minimum_size = Vector2(450, 0)
-layout_mode = 2
-text = "100%"
-horizontal_alignment = 2
-
-[node name="volumeSlider" type="HSlider" parent="settingsChangers/volume" unique_id=987299730]
-custom_minimum_size = Vector2(900, 0)
-layout_mode = 2
-value = 100.0
-
-[node name="resolution" type="HBoxContainer" parent="settingsChangers" unique_id=1217868870]
-layout_mode = 2
-
-[node name="resolutionLabel" type="Label" parent="settingsChangers/resolution" unique_id=1674820873]
-custom_minimum_size = Vector2(1600, 0)
-layout_mode = 2
-text = "Разрешение"
-
-[node name="resolutionDropbox" type="OptionButton" parent="settingsChangers/resolution" unique_id=1680115472]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-
-[node name="Vsync" type="HBoxContainer" parent="settingsChangers" unique_id=1290037728]
-layout_mode = 2
-
-[node name="VSyncLabel" type="Label" parent="settingsChangers/Vsync" unique_id=253899974]
-custom_minimum_size = Vector2(1720, 0)
-layout_mode = 2
-text = "V-Sync"
-
-[node name="VSyncCheckBox" type="CheckBox" parent="settingsChangers/Vsync" unique_id=871954906]
-layout_mode = 2
-button_mask = 3
-text = "Выкл."
-
-[node name="backToMainMenuButton" type="Button" parent="." unique_id=875373123]
-offset_left = 1680.0
-offset_top = 992.0
-offset_right = 1857.6
-offset_bottom = 1050.9
-text = "Назад"
-script = ExtResource("2_f5r45")
-
-[connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="value_changed" from="settingsChangers/volume/volumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="item_selected" from="settingsChangers/resolution/resolutionDropbox" to="." method="_on_resolution_dropbox_item_selected"]
-[connection signal="toggled" from="settingsChangers/Vsync/VSyncCheckBox" to="." method="_on_v_sync_check_box_toggled"]
-[connection signal="pressed" from="backToMainMenuButton" to="backToMainMenuButton" method="_on_pressed"]
-=======
 
 [node name="Menu" type="Node2D" unique_id=934215902]
 
@@ -117,4 +32,3 @@ layout_mode = 2
 layout_mode = 2
 
 [connection signal="ready" from="." to="." method="_on_ready"]
->>>>>>> 280ba808ccbe6f55b3712603ee82596c0c9aae66
