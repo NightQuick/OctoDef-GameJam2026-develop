@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bqbec6ur35o2l"]
+
+[ext_resource type="Script" uid="uid://c7v711vtnim1t" path="res://scripts/interface/interface.gd" id="1_344q1"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=766579730]
+script = ExtResource("1_344q1")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=2134043845]
+offset_right = 1920.0
+offset_bottom = 128.0
+border_width = 2.0
+
+[node name="towerOpener" type="Button" parent="." unique_id=451175951]
+offset_left = 1752.0
+offset_top = 16.0
+offset_right = 1904.0
+offset_bottom = 48.0
+text = "Башни"
+
+[node name="towerList" type="ScrollContainer" parent="." unique_id=243137491]
+offset_left = 1752.0
+offset_top = 49.0
+offset_right = 1904.0
+offset_bottom = 49.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="towerList" unique_id=1897778301]
+layout_mode = 2
+
+[node name="resourceOpener" type="Button" parent="." unique_id=1162545838]
+offset_left = 1580.0
+offset_top = 16.0
+offset_right = 1732.0
+offset_bottom = 48.0
+text = "Ресурсы"
+
+[node name="resourceList" type="ScrollContainer" parent="." unique_id=2009409640]
+offset_left = 1580.0
+offset_top = 49.0
+offset_right = 1732.0
+offset_bottom = 49.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="resourceList" unique_id=1184609525]
+layout_mode = 2
+
+[connection signal="ready" from="." to="." method="_on_ready"]

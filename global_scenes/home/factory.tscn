@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cgqjnvnhvfo5s"]
+
+[ext_resource type="Script" path="res://scripts/factory/factory.gd" id="1_cs6px"]
+
+[sub_resource type="TileSet" id="TileSet_cs6px"]
+tile_size = Vector2i(32, 32)
+
+[node name="Factory" type="Node2D" unique_id=204755876]
+script = ExtResource("1_cs6px")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1679431945]
+position = Vector2(167.00336, 139.50497)
+tile_set = SubResource("TileSet_cs6px")
+
+[node name="Camera2D" type="Camera2D" parent="TileMapLayer" unique_id=32941521]
+position = Vector2(216.99664, 76.495026)
+zoom = Vector2(2.5, 2.5)
+
+[connection signal="ready" from="." to="." method="_on_ready"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://hagstg2jfug7"]
+
+[ext_resource type="Texture2D" uid="uid://dv3qdku1qkoby" path="res://textures/towers/7-test.jpg" id="1_pl1f5"]
+
+[node name="resource" type="Container" unique_id=1562133542]
+custom_minimum_size = Vector2(152, 32)
+
+[node name="resourceText" type="Label" parent="." unique_id=1785703742]
+custom_minimum_size = Vector2(120, 0)
+layout_direction = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Жел. руда"
+
+[node name="resourceImg" type="TextureRect" parent="." unique_id=1572323954]
+custom_minimum_size = Vector2(32, 32)
+layout_direction = 3
+layout_mode = 2
+texture = ExtResource("1_pl1f5")
+expand_mode = 1
+stretch_mode = 5

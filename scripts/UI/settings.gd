@@ -1,5 +1,5 @@
 extends Node2D
-@onready var resolution_dropbox: OptionButton = $settingsChangers/resolution/resolutionDropbox
+@onready var resolution_dropbox: OptionButton = $settingsList/settingsChangers/resolutionDropbox
 
 
 func _on_ready() -> void:
@@ -32,3 +32,7 @@ func _on_v_sync_check_box_toggled(toggled_on: bool) -> void:
 
 func _on_volume_slider_value_changed(value: float) -> void:
 	$settingsChangers/volume/volumeLevel.text=str(int(value))+'%'
+
+
+func _on_back_to_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://global_scenes/UI/mainMenu.tscn")

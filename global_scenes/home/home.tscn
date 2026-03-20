@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://boj8lobyou5p8"]
+
+[ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="1_lhcqb"]
+[ext_resource type="Texture2D" uid="uid://dahc7ysbiiw1" path="res://textures/home/factory.png" id="2_lw3ji"]
+[ext_resource type="Texture2D" uid="uid://b7enwcy4kbv64" path="res://textures/home/townHall.png" id="3_tqp6b"]
+[ext_resource type="Texture2D" uid="uid://jf3i84euv0u7" path="res://textures/home/mine.jpg" id="4_20pci"]
+[ext_resource type="Texture2D" uid="uid://bda60a6nmv64j" path="res://textures/home/laboratory.png" id="5_lhin3"]
+[ext_resource type="Texture2D" uid="uid://c3f5bky5rqyqb" path="res://textures/home/door.jpg" id="6_lw3ji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqp6b"]
+size = Vector2(793.1422, 906.4479)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20pci"]
+size = Vector2(691.9922, 811.3013)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhin3"]
+size = Vector2(367.34692, 367.34686)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jf7d"]
+size = Vector2(841.2306, 841.2302)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mai5n"]
+size = Vector2(841.23206, 841.2323)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xlh4"]
+size = Vector2(3200.4458, 3657.6519)
+
+[node name="Home" type="Node2D" unique_id=2144393340]
+
+[node name="homeBackground" type="Sprite2D" parent="." unique_id=1075312478]
+position = Vector2(960, 540)
+scale = Vector2(1.5483872, 1.5472779)
+texture = ExtResource("1_lhcqb")
+
+[node name="bichFactory" type="Sprite2D" parent="." unique_id=278240640]
+position = Vector2(632.00006, 856)
+scale = Vector2(0.14121054, 0.14121056)
+texture = ExtResource("2_lw3ji")
+
+[node name="bichFactoryArea" type="Area2D" parent="bichFactory" unique_id=1866919816]
+position = Vector2(74.489746, 46.645386)
+
+[node name="bichFactoryCollision" type="CollisionShape2D" parent="bichFactory/bichFactoryArea" unique_id=17320978]
+position = Vector2(-74.489746, -46.645996)
+shape = SubResource("RectangleShape2D_tqp6b")
+
+[node name="townHall" type="Sprite2D" parent="." unique_id=1881285154]
+position = Vector2(975.99994, 696)
+scale = Vector2(0.33526385, 0.33526382)
+texture = ExtResource("3_tqp6b")
+
+[node name="towenHallArea" type="Area2D" parent="townHall" unique_id=405598008]
+position = Vector2(74.489746, 46.645386)
+
+[node name="townHallCollision" type="CollisionShape2D" parent="townHall/towenHallArea" unique_id=1762819135]
+position = Vector2(-62.558594, -46.645264)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_20pci")
+
+[node name="mine" type="Sprite2D" parent="." unique_id=1003397862]
+position = Vector2(512, 592.00006)
+scale = Vector2(0.54444444, 0.54444444)
+texture = ExtResource("4_20pci")
+
+[node name="mineArea" type="Area2D" parent="mine" unique_id=613666192]
+position = Vector2(74.489746, 46.645386)
+
+[node name="mineCollision" type="CollisionShape2D" parent="mine/mineArea" unique_id=27371428]
+position = Vector2(-67.14282, -39.29834)
+shape = SubResource("RectangleShape2D_lhin3")
+
+[node name="detailFactory" type="Sprite2D" parent="." unique_id=631590268]
+position = Vector2(1460.827, 620.59705)
+scale = Vector2(0.1616679, 0.16166791)
+texture = ExtResource("2_lw3ji")
+
+[node name="detailFactoryArea" type="Area2D" parent="detailFactory" unique_id=1865492926]
+position = Vector2(74.489746, 46.645386)
+
+[node name="detailFactoryCollision" type="CollisionShape2D" parent="detailFactory/detailFactoryArea" unique_id=2005443445]
+position = Vector2(-79.60547, -50.33838)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_2jf7d")
+
+[node name="constructionFactory" type="Sprite2D" parent="." unique_id=972648417]
+position = Vector2(1236.827, 924.5971)
+scale = Vector2(0.16166772, 0.16166773)
+texture = ExtResource("2_lw3ji")
+
+[node name="constructionFactoryArea" type="Area2D" parent="constructionFactory" unique_id=1020460002]
+position = Vector2(74.489746, 46.645386)
+
+[node name="constructionFactoryCollision" type="CollisionShape2D" parent="constructionFactory/constructionFactoryArea" unique_id=1574527969]
+position = Vector2(-79.60547, -50.33789)
+shape = SubResource("RectangleShape2D_mai5n")
+
+[node name="laboratory" type="Sprite2D" parent="." unique_id=1435657033]
+position = Vector2(864, 400)
+scale = Vector2(0.052492693, 0.052492693)
+texture = ExtResource("5_lhin3")
+
+[node name="laboratoryArea" type="Area2D" parent="laboratory" unique_id=2056212821]
+position = Vector2(74.489746, 46.645386)
+
+[node name="laboratoryCollision" type="CollisionShape2D" parent="laboratory/laboratoryArea" unique_id=1138998159]
+position = Vector2(1.7089844, -46.645508)
+shape = SubResource("RectangleShape2D_7xlh4")
+
+[node name="startButton" type="Button" parent="." unique_id=522055593]
+offset_left = 1632.0
+offset_top = 968.0
+offset_right = 1872.0
+offset_bottom = 1040.0
+theme_override_font_sizes/font_size = 31
+text = "Начать забег"
+language = "ru_RU"
+
+[node name="door" type="Sprite2D" parent="." unique_id=614054061]
+position = Vector2(950, 160)
+scale = Vector2(0.31500006, 0.31500006)
+texture = ExtResource("6_lw3ji")
+
+[connection signal="ready" from="." to="." method="_on_ready"]

@@ -1,34 +1,47 @@
 [gd_scene format=3 uid="uid://doj62alyn4td1"]
 
 [ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="1_8daw3"]
+[ext_resource type="Script" uid="uid://d31i1qkqroyjn" path="res://scripts/UI/settings.gd" id="1_f5r45"]
 
 [node name="Menu" type="Node2D" unique_id=934215902]
+script = ExtResource("1_f5r45")
 
 [node name="background" type="Sprite2D" parent="." unique_id=342365649]
 position = Vector2(960, 540)
 scale = Vector2(1.548387, 1.547278)
 texture = ExtResource("1_8daw3")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=871694236]
+[node name="settingsList" type="HBoxContainer" parent="." unique_id=871694236]
 custom_minimum_size = Vector2(800, 1000)
 offset_left = 26.0
 offset_top = 40.0
 offset_right = 1890.0
 offset_bottom = 1040.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=807896155]
+[node name="settingsLabels" type="VBoxContainer" parent="settingsList" unique_id=807896155]
 custom_minimum_size = Vector2(930, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=2012069086]
+[node name="volumeLabel" type="Label" parent="settingsList/settingsLabels" unique_id=2012069086]
 layout_mode = 2
 text = "fafaf"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1378742195]
+[node name="settingsChangers" type="VBoxContainer" parent="settingsList" unique_id=1378742195]
 custom_minimum_size = Vector2(930, 0)
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="HBoxContainer/VBoxContainer2" unique_id=987299730]
+[node name="volumeSlider" type="HSlider" parent="settingsList/settingsChangers" unique_id=987299730]
 layout_mode = 2
 
+[node name="resolutionDropbox" type="OptionButton" parent="settingsList/settingsChangers" unique_id=1059561899]
+layout_mode = 2
+
+[node name="backToMenu" type="Button" parent="." unique_id=402529405]
+offset_left = 1544.0
+offset_top = 976.0
+offset_right = 1830.0
+offset_bottom = 1032.0
+text = "Назад"
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="backToMenu" to="." method="_on_back_to_menu_pressed"]
