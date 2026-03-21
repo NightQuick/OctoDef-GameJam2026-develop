@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var aggr_range: float = 1
-@export var attack_damage: float = 1
+@export var aggr_range: float = 3
+@export var attack_damage: float = 10
 @export var attack_speed: float = 1 #МАКСИМАЛЬНАЯ СКОРОСТЬ АТАКИ 0.3... иначе анимащия сдохнет
 
 var enemy_in_range: Array = []
@@ -52,6 +52,10 @@ func rotate_head():
 		$Head.region_rect.position.x = 224
 
 func _on_attack_timeout() -> void:
+	target.self_health -= attack_damage
+	  
+	print("Здоровье   ", target.name, ": ", target.self_health)
+	
 	var shoot_anim = create_tween()
 	var head_pos = $Head.position
 	match $Head.region_rect.position.x:
@@ -79,3 +83,4 @@ func _on_attack_timeout() -> void:
 		224.0:
 			shoot_anim.tween_property($Head, "position", Vector2(head_pos.x, head_pos.y-3), .1)
 			shoot_anim.tween_property($Head, "position", head_pos, .2)
+		

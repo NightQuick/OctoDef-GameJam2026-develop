@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c4wpgp88xn55i" path="res://scripts/mobs/angry/evil_seven.gd" id="1_appt4"]
 [ext_resource type="Texture2D" uid="uid://bys0vxk4ww77a" path="res://textures/mobs/mobs.png" id="2_pxy6e"]
+[ext_resource type="Texture2D" uid="uid://cera7yd2wdjnn" path="res://textures/UI/hp-progress.png" id="3_707bo"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_appt4"]
-radius = 4.0
-height = 8.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxy6e"]
+radius = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_707bo"]
 atlas = ExtResource("2_pxy6e")
@@ -49,8 +49,8 @@ animations = [{
 script = ExtResource("1_appt4")
 type_of_attack = "tank"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=354808271]
-shape = SubResource("CapsuleShape2D_appt4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852068731]
+shape = SubResource("CircleShape2D_pxy6e")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2142879240]
 position = Vector2(0, -16)
@@ -70,5 +70,14 @@ debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.84705883, 0, 0, 0.9764706)
 debug_path_custom_point_size = 1.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=870607325]
+offset_left = -16.0
+offset_top = -27.0
+offset_right = 16.0
+offset_bottom = -23.0
+value = 100.0
+fill_mode = 6
+texture_progress = ExtResource("3_707bo")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
