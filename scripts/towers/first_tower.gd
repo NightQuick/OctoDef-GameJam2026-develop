@@ -8,7 +8,9 @@ var enemy_in_range: Array = []
 var target
 
 func _ready() -> void:
+	z_index = global_position.y
 	$Body/Range.scale = $Body/Range.scale*aggr_range
+	$Attack.wait_time = attack_speed
 
 func _process(_delta: float) -> void:
 	if len(enemy_in_range) != 0:
@@ -52,6 +54,7 @@ func rotate_head():
 		$Head.region_rect.position.x = 224
 
 func _on_attack_timeout() -> void:
+	target.self_health -= attack_damage
 	var shoot_anim = create_tween()
 	var head_pos = $Head.position
 	match $Head.region_rect.position.x:

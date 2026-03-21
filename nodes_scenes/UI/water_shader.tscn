@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dfbipni7g2jl3"]
+
+[ext_resource type="Texture2D" uid="uid://ctb0ikyl50f0t" path="res://textures/UI/home.png" id="1_1woxm"]
+[ext_resource type="Shader" uid="uid://dxgh1ih37elgq" path="res://textures/shaders/water.gdshader" id="1_bf123"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1woxm"]
+shader = ExtResource("1_bf123")
+shader_parameter/speed = 0.6
+shader_parameter/scale = 10.0
+shader_parameter/intensity = 1.0
+shader_parameter/water_color = Color(0.18416387, 0.45305324, 0.7262293, 0.29803923)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=389894623]
+
+[node name="Home" type="Sprite2D" parent="." unique_id=1446338694]
+position = Vector2(959.99994, 540)
+scale = Vector2(2.9999998, 2.9752066)
+texture = ExtResource("1_1woxm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1155074408]
+material = SubResource("ShaderMaterial_1woxm")
+offset_left = -18.0
+offset_top = -8.0
+offset_right = 1934.0
+offset_bottom = 1092.0

@@ -29,7 +29,7 @@ func _on_slot_template_pressed() -> void:
 		$"..".add_child(selected_tower)
 
 func _input(_event):
-	if Input.is_action_just_pressed("mouse_right_button"):
+	if Input.is_action_just_pressed("mouse_right_button") and selected_tower:
 		selected_tower.queue_free()
 	if Input.is_action_just_pressed("mouse_left_button"):
 		if selected_tower and placeable:
@@ -56,5 +56,4 @@ func chek_placeable():
 func place_selected_tower(pos: Vector2):
 	var tower = test_tower.instantiate()
 	tower.global_position = pos
-	tower.z_index = pos.y
 	$"..".add_child(tower)
