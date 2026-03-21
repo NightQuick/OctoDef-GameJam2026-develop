@@ -7,4 +7,5 @@ const listResolutions:Dictionary={
 	"768x768":Vector2i(768,768)
 }
 
+var _is_debug_ : bool = true #ПОМЕНЯТЬ К БИЛДУ
 var base_cords : Array 

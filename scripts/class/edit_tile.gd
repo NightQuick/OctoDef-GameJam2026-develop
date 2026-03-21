@@ -1,6 +1,5 @@
 class_name edit_tile
 
-
 static func convert_cords(possition: Vector2, GettingTileMap: TileMapLayer) -> Vector2i:
 	var correct_possition = GettingTileMap.map_to_local(possition)
 	return correct_possition
@@ -10,11 +9,12 @@ static func place_selected_node(tree_scene, possition: Vector2, placed_node: Pac
 	var correct_possition = GettingTileMap.map_to_local(possition)
 	var node = placed_node.instantiate()
 	node.global_position = correct_possition
+	node.global_position.y -= 8
 	tree_scene.add_child(node)
 	#print(correct_possition, " - possition of tower")
 	print(node.position, ' - позиция заспавненной ноды')
 
-#Hopper: Находит на карте из определенного атласа все конкретные тайлы по id 
+#Hopper: Находит на карте из определенного атласа все конкретные тайлы по передаваемому id 
 static func find_tiles_by_id(id_atlas : int, need_tiles : Vector2i, TMap : TileMapLayer) -> Array:
 	var used_cells = TMap.get_used_cells()
 	var found_cells = []

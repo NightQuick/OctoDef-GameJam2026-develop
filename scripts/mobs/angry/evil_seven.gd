@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export_enum("tank", "scooter", "damager") var type_of_attack : String
 
 @onready var self_speed : int = 20         #Собственная скорость
-@onready var self_heath : int = 100        #Собственное здоровье
+@onready var self_health : int = 100        #Собственное здоровье
 @onready var self_damage : int = 10        #Собственый дамаг
 
 @onready var NavigationAgent: NavigationAgent2D = $NavigationAgent2D
@@ -12,21 +12,23 @@ extends CharacterBody2D
 @onready var selected_type_attack
 
 func _ready() -> void:
-
 	match type_of_attack:
 		"tank": print(name,    ": создан класс танк"); selected_type_attack = type_of_attack;\
-		self_speed = 10; self_heath = 500; self_damage = 20
+		self_speed = 10; self_health = 500; self_damage = 20
 
 		"scooter": print(name, ": создан класс скутер"); selected_type_attack = type_of_attack;\
-		self_speed = 40; self_heath = 50; self_damage = 10
+		self_speed = 40; self_health = 50; self_damage = 10
 
 		"damager": print(name, ": создан класс дамагер"); selected_type_attack = type_of_attack;\
-		self_speed = 10; self_heath = 20; self_damage = 35
+		self_speed = 10; self_health = 20; self_damage = 35
 
 		_: printerr(name, ":не выбран тип атаки юнита ", self); get_tree().quit();
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("mouse_left_button"):
+	
+	z_index = global_position.y
+	
+	if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:
 		mouse_position = get_global_mouse_position()
 		NavigationAgent.target_position = mouse_position
 		print(name, ": установлена новая цель - ", mouse_position)
