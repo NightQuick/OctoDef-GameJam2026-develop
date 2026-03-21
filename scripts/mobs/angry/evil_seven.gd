@@ -3,17 +3,22 @@ extends CharacterBody2D
 @export_category("КАСТОМНЫЕ НАСТРОЙКИ") 
 @export_enum("tank", "scooter", "damager") var type_of_attack : String
 
-@onready var self_speed : int = 20         #Собственная скорость
-@onready var self_health : int = 100        #Собственное здоровье
-@onready var self_damage : int = 10        #Собственый дамаг
+var self_speed : int = 20         #Собственная скорость
+var self_health : int = 100       #Собственное здоровье
+var self_health_before : int
+var self_damage : int = 10        #Собственый дамаг
 
 @onready var NavigationAgent: NavigationAgent2D = $NavigationAgent2D
-@onready var mouse_position = Vector2(0, 0) 
-@onready var selected_type_attack
+@onready var hp_bar : TextureProgressBar = $TextureProgressBar
+var mouse_position = Vector2(0, 0) 
+var selected_type_attack
 
 func _ready() -> void:
+	
+
+	
 	match type_of_attack:
-		"tank": print(name,    ": создан класс танк"); selected_type_attack = type_of_attack;\
+		"tank": print(name, ": создан класс танк"); selected_type_attack = type_of_attack;\
 		self_speed = 10; self_health = 500; self_damage = 20
 
 		"scooter": print(name, ": создан класс скутер"); selected_type_attack = type_of_attack;\
@@ -24,9 +29,13 @@ func _ready() -> void:
 
 		_: printerr(name, ":не выбран тип атаки юнита ", self); get_tree().quit();
 
+	self_health_before = self_health
+
 func _physics_process(_delta: float) -> void:
 	
 	z_index = global_position.y
+#	
+	die()
 	
 	if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:
 		mouse_position = get_global_mouse_position()
@@ -63,6 +72,20 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
+
+func die():
+	
+	if self_health != self_health_before:  
+		var процент = (float(self_health) / float(self_health_before)) * 100
+	
+		hp_bar.value = процент
+		print('&&& ', self_health)
+		print('!!! ', self_health_before)
+		print(процент)
+	
+	if self_health <= 0:
+		print(name, ' УМЕР.')
+		queue_free()
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity

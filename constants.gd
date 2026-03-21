@@ -8,4 +8,4 @@ const listResolutions:Dictionary={
 }
 
 var _is_debug_ : bool = true #ПОМЕНЯТЬ К БИЛДУ
-var base_cords : Array 
+var base_cords : Array
