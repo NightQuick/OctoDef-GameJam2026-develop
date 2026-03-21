@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://boj8lobyou5p8"]
 
 [ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="1_lhcqb"]
+[ext_resource type="Script" uid="uid://w1bf0dr5t0qs" path="res://scripts/home/home.gd" id="1_tqp6b"]
 [ext_resource type="Texture2D" uid="uid://dahc7ysbiiw1" path="res://textures/home/factory.png" id="2_lw3ji"]
 [ext_resource type="Texture2D" uid="uid://b7enwcy4kbv64" path="res://textures/home/townHall.png" id="3_tqp6b"]
 [ext_resource type="Texture2D" uid="uid://jf3i84euv0u7" path="res://textures/home/mine.jpg" id="4_20pci"]
@@ -26,6 +27,7 @@ size = Vector2(841.23206, 841.2323)
 size = Vector2(3200.4458, 3657.6519)
 
 [node name="Home" type="Node2D" unique_id=2144393340]
+script = ExtResource("1_tqp6b")
 
 [node name="homeBackground" type="Sprite2D" parent="." unique_id=1075312478]
 position = Vector2(960, 540)

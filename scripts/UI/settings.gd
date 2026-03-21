@@ -31,7 +31,7 @@ func _on_v_sync_check_box_toggled(toggled_on: bool) -> void:
 
 
 func _on_volume_slider_value_changed(value: float) -> void:
-	$settingsChangers/volume/volumeLevel.text=str(int(value))+'%'
+	$settingsList/settingsLabels/volume/volumeLevel.text=str(int(value))+'%'
 
 
 func _on_back_to_menu_pressed() -> void:
