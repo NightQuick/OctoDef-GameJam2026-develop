@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://c4wpgp88xn55i" path="res://scripts/mobs/angry/evil_seven.gd" id="1_appt4"]
 [ext_resource type="Texture2D" uid="uid://bys0vxk4ww77a" path="res://textures/mobs/mobs.png" id="2_pxy6e"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_appt4"]
-radius = 4.0
-height = 8.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_707bo"]
 atlas = ExtResource("2_pxy6e")
 region = Rect2(0, 0, 32, 32)
@@ -48,9 +44,6 @@ animations = [{
 [node name="EvilSeven" type="CharacterBody2D" unique_id=1312135262 groups=["enemy"]]
 script = ExtResource("1_appt4")
 type_of_attack = "tank"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=354808271]
-shape = SubResource("CapsuleShape2D_appt4")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2142879240]
 position = Vector2(0, -16)

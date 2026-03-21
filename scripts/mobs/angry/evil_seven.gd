@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var selected_type_attack
 
 func _ready() -> void:
+	
 	match type_of_attack:
 		"tank": print(name,    ": создан класс танк"); selected_type_attack = type_of_attack;\
 		self_speed = 10; self_heath = 500; self_damage = 20
