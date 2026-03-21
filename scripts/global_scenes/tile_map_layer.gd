@@ -8,8 +8,12 @@ extends Node
 @onready var TMap : TileMapLayer = $TileMapLayer
 
 func _ready() -> void:
-	place_in_tiles(edit_tile.find_tiles_by_id(atlas_base_id, tiles_base_founding, TMap), first_tower_node)
 	place_in_tiles(edit_tile.find_tiles_by_id(atlas_base_id, tiles_spawner_founding, TMap), evil_seve_node)
+	place_in_tiles(edit_tile.find_tiles_by_id(atlas_base_id, tiles_base_founding, TMap), first_tower_node)
+	var base_cords_massive = edit_tile.find_tiles_by_id(atlas_base_id, tiles_base_founding, TMap)
+	for cord in base_cords_massive:
+		Constants.base_cords.append(edit_tile.convert_cords(cord, TMap))
+		
 
 func place_in_tiles(cords_massive, spawning_node):
 	for placing in cords_massive:
