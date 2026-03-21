@@ -1,13 +1,16 @@
-[gd_scene format=3 uid="uid://boj8lobyou5p8"]
+[gd_scene format=3 uid="uid://bfobb07p5sbf3"]
 
-[ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="1_lhcqb"]
 [ext_resource type="Script" uid="uid://w1bf0dr5t0qs" path="res://scripts/home/home.gd" id="1_tqp6b"]
 [ext_resource type="Texture2D" uid="uid://dahc7ysbiiw1" path="res://textures/home/factory.png" id="2_lw3ji"]
+[ext_resource type="Texture2D" uid="uid://ce58n6a54lvan" path="res://textures/UI/home.png" id="2_mai5n"]
 [ext_resource type="Texture2D" uid="uid://b7enwcy4kbv64" path="res://textures/home/townHall.png" id="3_tqp6b"]
 [ext_resource type="Texture2D" uid="uid://jf3i84euv0u7" path="res://textures/home/mine.jpg" id="4_20pci"]
 [ext_resource type="Texture2D" uid="uid://bda60a6nmv64j" path="res://textures/home/laboratory.png" id="5_lhin3"]
 [ext_resource type="Texture2D" uid="uid://c3f5bky5rqyqb" path="res://textures/home/door.jpg" id="6_lw3ji"]
 [ext_resource type="Script" uid="uid://bucn1vfgash3w" path="res://scripts/home/camera_2d.gd" id="8_20pci"]
+[ext_resource type="Texture2D" uid="uid://bbjd4iefxepam" path="res://textures/UI/active_gate.png" id="9_7xlh4"]
+[ext_resource type="Texture2D" uid="uid://6xpve5lbgkxs" path="res://textures/UI/active_sberbank.png" id="10_cspfa"]
+[ext_resource type="Texture2D" uid="uid://bbuqiwvgqvqas" path="res://textures/UI/corals.png" id="11_0htlh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqp6b"]
 size = Vector2(793.1422, 906.4479)
@@ -32,8 +35,8 @@ script = ExtResource("1_tqp6b")
 
 [node name="homeBackground" type="Sprite2D" parent="." unique_id=1075312478]
 position = Vector2(960, 540)
-scale = Vector2(1.5483872, 1.5472779)
-texture = ExtResource("1_lhcqb")
+scale = Vector2(2.9999998, 2.9752066)
+texture = ExtResource("2_mai5n")
 
 [node name="bichFactory" type="Sprite2D" parent="." unique_id=278240640]
 position = Vector2(632.00006, 856)
@@ -48,7 +51,7 @@ position = Vector2(-74.489746, -46.645996)
 shape = SubResource("RectangleShape2D_tqp6b")
 
 [node name="townHall" type="Sprite2D" parent="." unique_id=1881285154]
-position = Vector2(975.99994, 696)
+position = Vector2(1196, 726)
 scale = Vector2(0.33526385, 0.33526382)
 texture = ExtResource("3_tqp6b")
 
@@ -56,7 +59,7 @@ texture = ExtResource("3_tqp6b")
 position = Vector2(74.489746, 46.645386)
 
 [node name="townHallCollision" type="CollisionShape2D" parent="townHall/towenHallArea" unique_id=1762819135]
-position = Vector2(-62.558594, -46.645264)
+position = Vector2(-62.55896, -61.55889)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_20pci")
 
@@ -98,7 +101,7 @@ position = Vector2(-79.60547, -50.33789)
 shape = SubResource("RectangleShape2D_mai5n")
 
 [node name="laboratory" type="Sprite2D" parent="." unique_id=1435657033]
-position = Vector2(864, 400)
+position = Vector2(597, 372)
 scale = Vector2(0.052492693, 0.052492693)
 texture = ExtResource("5_lhin3")
 
@@ -106,7 +109,7 @@ texture = ExtResource("5_lhin3")
 position = Vector2(74.489746, 46.645386)
 
 [node name="laboratoryCollision" type="CollisionShape2D" parent="laboratory/laboratoryArea" unique_id=1138998159]
-position = Vector2(1.7089844, -46.645508)
+position = Vector2(154.11377, -8.544983)
 shape = SubResource("RectangleShape2D_7xlh4")
 
 [node name="door" type="Sprite2D" parent="." unique_id=614054061]
@@ -124,5 +127,20 @@ limit_bottom = 1080
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 script = ExtResource("8_20pci")
+
+[node name="ActiveGate" type="Sprite2D" parent="." unique_id=2146891041]
+position = Vector2(1374.0001, 245)
+scale = Vector2(2.9999993, 3)
+texture = ExtResource("9_7xlh4")
+
+[node name="ActiveSberbank" type="Sprite2D" parent="." unique_id=1601540839]
+position = Vector2(897.00006, 489.50003)
+scale = Vector2(3.0014646, 2.985612)
+texture = ExtResource("10_cspfa")
+
+[node name="Corals" type="Sprite2D" parent="." unique_id=1626129914]
+position = Vector2(973.5, 954)
+scale = Vector2(3, 2.9723322)
+texture = ExtResource("11_0htlh")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
