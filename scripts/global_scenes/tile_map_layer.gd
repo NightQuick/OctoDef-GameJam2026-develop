@@ -1,50 +1,39 @@
-extends CanvasLayer
+extends TileMapLayer
 
-var selected_tower: Node2D
-var selected_tower_last_pos: Vector2
-var placeable: bool = true
-
-#Башни (В дальнейшем надо сделать глобальный список всех башен, а не хранить их в коде инвентаря)
-var test_tower = preload("res://nodes_scenes/towers/first_tower.tscn")
+@export var id_atlas = 0
+@export var need_tiles = Vector2(1, 1)
+@export var need_node = preload("res://nodes_scenes/towers/first_tower.tscn")
 
 func _ready() -> void:
- pass
+	var all_found_tiles_cord = find_tiles_by_id()
+	print(all_found_tiles_cord)
+	place_in_tiles(all_found_tiles_cord)
+	$"..".add_child(need_node.instantiate())
 
-func _process(_delta: float) -> void:
- if selected_tower:
-  selected_tower.global_position = $"../TileMapLayer".map_to_local($"../TileMapLayer".local_to_map($"..".get_global_mouse_position()))
-  selected_tower.global_position.y -= 8
-  selected_tower_last_pos = Vector2(selected_tower.global_position.x, selected_tower.global_position.y-1)
-  if not placeable:
-   selected_tower.modulate = Color(1.0, 0.0, 0.0, 1.0)
-  else: selected_tower.modulate = Color(1.0, 1.0, 1.0, .65)
-  
-  if selected_tower_last_pos != selected_tower.global_position:
-   chek_placeable()
+func find_tiles_by_id():
+	var found_cells = []
+	# Получаем все занятые клетки на слое
+	var used_cells = get_used_cells()
+	# Сканируем их
+	for cell in used_cells:
+		var source_id = get_cell_source_id(cell) #Указывает на атлас тайла на передаваемых координатах
+		var atlas_coords = get_cell_atlas_coords(cell)
+	# Если ID совпадает с искомым
+		if (source_id == id_atlas and atlas_coords[0] == need_tiles[0] and atlas_coords[1] == need_tiles[1]):
+			found_cells.append([int(cell[0]), int(cell[1])])
+			print("Atlas: ", source_id, " Нашел тайл ID ", atlas_coords, " на координатах: ", cell)
 
-func _on_slot_template_pressed() -> void:
- if not selected_tower:
-  selected_tower = $SlotTemplate/Texture.duplicate()
-  $"..".add_child(selected_tower)
+	return found_cells
 
-func _input(_event):
- if Input.is_action_just_pressed("mouse_right_button"):
-  selected_tower.queue_free()
- if Input.is_action_just_pressed("mouse_left_button"):
-  if selected_tower and placeable:
-   place_selected_tower(selected_tower.global_position)
-
-func chek_placeable():
- var scene_towers: Array = get_tree().get_nodes_in_group("tower")
- for i in scene_towers:
-  if selected_tower.global_position == i.global_position:
-   placeable = false
-   break
-  else: 
-   placeable = true
+func place_in_tiles(cords_massive):
+	for placing in cords_massive:
+		print("d2", placing)
+		place_selected_tower(Vector2(placing[0], placing[1]))
 
 func place_selected_tower(pos: Vector2):
- var tower = test_tower.instantiate()
- tower.global_position = pos
- tower.z_index = pos.y
- $"..".add_child(tower)
+	var correct_possition = $"../TileMapLayer".map_to_local($"../TileMapLayer".local_to_map(pos))
+	var tower = need_node.instantiate()
+	tower.global_position = correct_possition
+	#tower.z_index = pos.y
+	$"..".add_child(tower)
+	print(tower.position, " - possition of tower")
