@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://jf3i84euv0u7" path="res://textures/home/mine.jpg" id="4_20pci"]
 [ext_resource type="Texture2D" uid="uid://bda60a6nmv64j" path="res://textures/home/laboratory.png" id="5_lhin3"]
 [ext_resource type="Texture2D" uid="uid://c3f5bky5rqyqb" path="res://textures/home/door.jpg" id="6_lw3ji"]
+[ext_resource type="Script" uid="uid://bucn1vfgash3w" path="res://scripts/home/camera_2d.gd" id="8_20pci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqp6b"]
 size = Vector2(793.1422, 906.4479)
@@ -108,18 +109,20 @@ position = Vector2(74.489746, 46.645386)
 position = Vector2(1.7089844, -46.645508)
 shape = SubResource("RectangleShape2D_7xlh4")
 
-[node name="startButton" type="Button" parent="." unique_id=522055593]
-offset_left = 1632.0
-offset_top = 968.0
-offset_right = 1872.0
-offset_bottom = 1040.0
-theme_override_font_sizes/font_size = 31
-text = "Начать забег"
-language = "ru_RU"
-
 [node name="door" type="Sprite2D" parent="." unique_id=614054061]
 position = Vector2(950, 160)
 scale = Vector2(0.31500006, 0.31500006)
 texture = ExtResource("6_lw3ji")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1666376704]
+position = Vector2(960, 540.00006)
+scale = Vector2(0.54444444, 0.54444444)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+script = ExtResource("8_20pci")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
