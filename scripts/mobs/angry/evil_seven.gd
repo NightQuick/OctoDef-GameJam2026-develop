@@ -3,10 +3,10 @@ extends CharacterBody2D
 @export_category("КАСТОМНЫЕ НАСТРОЙКИ") 
 @export_enum("tank", "scooter", "damager") var type_of_attack : String
 
-var self_speed : int = 20         #Собственная скорость
-var self_health : int = 100       #Собственное здоровье
-var self_health_before : int
-var self_damage : int = 10        #Собственый дамаг
+var self_speed : int              #Собственная скорость
+var self_health : int             #Собственное здоровье
+var self_health_before : int      #Изначальное здоровье
+var self_damage : int             #Собственый дамаг   
 
 @onready var NavigationAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var hp_bar : TextureProgressBar = $TextureProgressBar
@@ -73,12 +73,12 @@ func _physics_process(_delta: float) -> void:
 func die():
 	
 	if self_health != self_health_before:  
-		var процент = (float(self_health) / float(self_health_before)) * 100
+		var health_percentage = (float(self_health) / float(self_health_before)) * 100
 	
-		hp_bar.value = процент
-		print('&&& ', self_health)
-		print('!!! ', self_health_before)
-		print(процент)
+		hp_bar.value = health_percentage
+		print(name, 'Здоровье до: ', self_health_before)
+		print(name, 'Здоровье после: ', self_health)
+		print(name, 'Процент здоровья: ', health_percentage)
 	
 	if self_health <= 0:
 		print(name, ' УМЕР.')
