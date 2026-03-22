@@ -26,12 +26,13 @@ func _ready() -> void:
 
 		_: printerr(name, ":не выбран тип атаки юнита ", self); get_tree().quit();
 
-	self_health_before = self_health
+	self_health_before = self_health 
 
 func _physics_process(_delta: float) -> void:
 	
 	z_index = global_position.y
-	die()
+	evil.die(self, hp_bar)
+	
 	
 	if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:
 		mouse_position = get_global_mouse_position()
@@ -68,20 +69,6 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
-
-func die():
-	
-	if self_health != self_health_before:  
-		var health_percentage = (float(self_health) / float(self_health_before)) * 100
-	
-		hp_bar.value = health_percentage
-		print(name, 'Здоровье до: ', self_health_before)
-		print(name, 'Здоровье после: ', self_health)
-		print(name, 'Процент здоровья: ', health_percentage)
-	
-	if self_health <= 0:
-		print(name, ' УМЕР.')
-		queue_free()
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
