@@ -1,10 +1,13 @@
 extends Node
 
 @export var atlas_base_id : int = 0
-@export var tiles_base_founding : Vector2 = Vector2(1, 1)
+
 @export var tiles_spawner_founding : Vector2 = Vector2(1, 3)
-@export var target_tower_node : PackedScene = preload("res://nodes_scenes/towers/target_tower.tscn")
 @export var evil_seve_node : PackedScene = preload("res://nodes_scenes/mobs/angry/evil_seven.tscn")
+
+@export var tiles_base_founding : Vector2 = Vector2(1, 1)
+@export var target_tower_node : PackedScene = preload("res://nodes_scenes/towers/target_tower.tscn")
+
 @onready var TMap : TileMapLayer = $TileMapLayer
 
 func _ready() -> void:

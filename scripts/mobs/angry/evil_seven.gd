@@ -31,7 +31,6 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	
 	z_index = global_position.y
-#	
 	die()
 	
 	if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:
