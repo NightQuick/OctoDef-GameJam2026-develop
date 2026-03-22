@@ -5,7 +5,9 @@ func _on_ready() -> void:
 	
 func _input(event): if event is InputEventMouseMotion:
 	var relative= event.relative
-	$Parallax.moveParallax($Parallax,relative.x,0.5,'x')
+	$Parallax.moveParallax($Parallax,relative,0.1,['x','y'])
+	$Parallax2.moveParallax($Parallax2,relative,0.01,['x','y'])
+	$Parallax3.moveParallax($Parallax3,relative,0.001,['x','y'])
 
 
 func _on_settings_button_pressed() -> void:
