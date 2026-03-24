@@ -7,13 +7,8 @@ points = PackedVector2Array(5.707107, 5.606603, -11.263458, 11.263458, -5.606603
 
 [node name="SmartTower" type="Node2D" unique_id=1113452276 groups=["tower"]]
 script = ExtResource("1_b63jk")
-tower_id = null
-base_id = null
-module_id = null
-aggr_range = null
-attack_damage = null
-attack_speed = null
-self_health = null
+tower_id = "watercannon"
+base_id = "ram"
 
 [node name="Body" type="Area2D" parent="." unique_id=1220535552]
 

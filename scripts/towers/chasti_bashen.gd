@@ -28,15 +28,14 @@ var base: Dictionary = {
 	"base":
 		{
 			"stats":{
-				"self_hp" = 50,
+				"max_health" = 50,
 				"aggr_range" = 5
-			},
-			"stats_modifiers" : {}
+			}
 		},
 	"castle":
 		{
 			"stats":{
-				"self_hp" = 150,
+				"max_health" = 150,
 				"aggr_range" = 3
 			},
 			"stats_modifiers" : {
@@ -46,7 +45,7 @@ var base: Dictionary = {
 	"ram":
 		{
 			"stats":{
-				"self_hp" = 25,
+				"max_health" = 25,
 				"aggr_range" = 6
 			},
 			"stats_modifiers" : {
@@ -56,7 +55,7 @@ var base: Dictionary = {
 	"arsenal":
 		{
 			"stats":{
-				"self_hp" = 45,
+				"max_health" = 45,
 				"aggr_range" = 4
 			},
 			"stats_modifiers" : {
