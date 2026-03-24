@@ -119,7 +119,7 @@ animations = [{
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_fx2u4"]
 points = PackedVector2Array(0, -8, 16, 0, 0, 8, -16, 0)
 
-[node name="TargetTower" type="Node2D" unique_id=1116757284]
+[node name="TargetTower" type="Node2D" unique_id=1116757284 groups=["target_tower", "tower"]]
 script = ExtResource("1_fx2u4")
 aggr_range = 2.0
 

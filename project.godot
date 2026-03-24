@@ -35,6 +35,7 @@ project/assembly_name="OctoDef"
 enemy=""
 tower=""
 evil="злодеи"
+target_tower=""
 
 [input]
 

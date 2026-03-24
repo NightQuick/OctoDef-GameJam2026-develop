@@ -12,13 +12,16 @@ var target_tower_node = scenes_path.target_tower_node
 @onready var TMap : TileMapLayer = $TileMapLayer
 
 func _ready() -> void:
-	edit_tile.cords_spawners = edit_tile.find_tiles_by_id(atlas_base_id, tiles_spawner_founding, TMap)
-	edit_tile.cords_targets = edit_tile.find_tiles_by_id(atlas_base_id, tiles_target_founding, TMap)
+	cords_objects()
 	place_in_tiles(edit_tile.cords_spawners, spawner_node)
 	place_in_tiles(edit_tile.cords_targets, target_tower_node)
-	for cord in edit_tile.cords_targets:
-		Constants.base_cords.append(edit_tile.convert_cords(cord, TMap))
-		
+
+func cords_objects():
+	edit_tile.cords_spawners = []
+	edit_tile.cords_targets = []
+	edit_tile.cords_spawners = edit_tile.find_tiles_by_id(atlas_base_id, tiles_spawner_founding, TMap)
+	edit_tile.cords_targets = edit_tile.find_tiles_by_id(atlas_base_id, tiles_target_founding, TMap)
+
 
 func place_in_tiles(cords_massive, spawning_node):
 	for placing in cords_massive:

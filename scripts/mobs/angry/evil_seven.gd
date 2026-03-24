@@ -34,26 +34,8 @@ func _ready() -> void:
 		_: printerr(name, ":не выбран тип атаки юнита ", self); get_tree().quit();
 
 	self_health_before = self_health 
-	
-	
-	
-	var nearest_point = null
-	var nearest_distance = INF
+	nearest_target()
 
-	if edit_tile.cords_targets != null and edit_tile.cords_targets.size() > 0:
-		for point in edit_tile.cords_targets:
-			point = tile_map_layer.map_to_local(point)
-			print('GLOBAL POS: ', global_position)
-			print('POINT POS:  ', point)
-			var distance = global_position.distance_to(point)
-			if distance < nearest_distance:
-				nearest_distance = distance
-				nearest_point = point
-				print(nearest_point)
-				
-	# nearest_point теперь содержит координаты ближайшей точки
-	if nearest_point != null:
-		NavigationAgent.target_position = nearest_point
 	
 func _physics_process(_delta: float) -> void:
 	
@@ -100,8 +82,33 @@ func _physics_process(_delta: float) -> void:
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 
+func nearest_target():
+	if not is_inside_tree():
+				return
+	await get_tree().process_frame
+	var nearest_point = null
+	var nearest_distance = INF
+
+	if edit_tile.cords_targets != null and edit_tile.cords_targets.size() > 0:
+		for point in edit_tile.cords_targets:
+			point = tile_map_layer.map_to_local(point)
+			var distance = global_position.distance_to(point)
+			if distance < nearest_distance:
+				nearest_distance = distance
+				nearest_point = point
+				
+	# nearest_point теперь содержит координаты ближайшей точки
+	if nearest_point != null:
+		NavigationAgent.target_position = nearest_point
+		
+		if not is_inside_tree():
+				return
+		await get_tree().create_timer(5.0).timeout
+		nearest_target()
+
+
 func TankFunc():
-	pass
+	pass    
 
 func ScooterFunc():
 	pass
