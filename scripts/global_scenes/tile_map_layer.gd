@@ -1,7 +1,7 @@
 extends Node
 
 @export var atlas_base_id : int = 0
-
+  
 @export var tiles_spawner_founding : Vector2 = Vector2(1, 3)
 var evil_seven_node = scenes_path.evil_seven_node
 
