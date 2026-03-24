@@ -121,6 +121,7 @@ points = PackedVector2Array(0, -8, 16, 0, 0, 8, -16, 0)
 
 [node name="TargetTower" type="Node2D" unique_id=1116757284]
 script = ExtResource("1_fx2u4")
+aggr_range = 2.0
 
 [node name="Body" type="Area2D" parent="." unique_id=102993839]
 

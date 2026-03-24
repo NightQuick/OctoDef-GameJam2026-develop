@@ -19,10 +19,11 @@ static func die(body):
 		var health_percentage = (float(body.self_health) / float(body.self_health_before)) * 100
 	
 		hp_bar.value = health_percentage
-		print(body.name, 'Здоровье до: ', body.self_health_before)
-		print(body.name, 'Здоровье после: ', body.self_health)
-		print(body.name, 'Процент здоровья: ', health_percentage)
+
+		#print(body.name, 'Здоровье до: ', body.self_health_before)
+		#print(body.name, 'Здоровье после: ', body.self_health)
+		#print(body.name, 'Процент здоровья: ', health_percentage)
 	
 	if body.self_health <= 0:
-		print(body.name, ' УМЕР.')
+		print(body.name,  ' УМЕР.')
 		body.queue_free()

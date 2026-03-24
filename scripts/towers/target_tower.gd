@@ -1,20 +1,19 @@
 extends Node2D
 
-@export var aggr_range: float = 3
+@export var aggr_range: float
 @export var self_health: int = 1000
 var self_health_before: int
 #@export var attack_damage: float = 10
-#@export var attack_speed: float = 1 #МАКСИМАЛЬНАЯ СКОРОСТЬ АТАКИ 0.3... иначе анимащия сдохнет
+
 
 var enemy_in_range: Array = []
 #var target
 
 func _ready() -> void:
-	#КАСТЫЛЬ!!! НУЖНО РАЗОБРАТЬСЯ КАКОГО ХУЯ $Body/Range НЕ НА КОРДАХ
 	self_health_before = self_health
 	z_index = global_position.y
 	$Body/Range.scale = $Body/Range.scale*aggr_range
-	#$Attack.wait_time = attack_speed
+	
 
 func _process(_delta: float) -> void:
 	if self_health <= 0:

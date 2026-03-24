@@ -1,25 +1,25 @@
-[gd_scene format=3 uid="uid://dof8k58afptyk"]
+[gd_scene format=3 uid="uid://b874tmeiv2soo"]
 
-[ext_resource type="Script" uid="uid://c4wpgp88xn55i" path="res://scripts/mobs/angry/evil_seven.gd" id="1_appt4"]
-[ext_resource type="Texture2D" uid="uid://bys0vxk4ww77a" path="res://textures/mobs/mobs.png" id="2_pxy6e"]
+[ext_resource type="Script" uid="uid://exhrn6d5kmm3" path="res://scripts/mobs/damager.gd" id="1_jjkop"]
+[ext_resource type="Texture2D" uid="uid://bys0vxk4ww77a" path="res://textures/mobs/mobs.png" id="2_y5q7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pxy6e"]
 radius = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_707bo"]
-atlas = ExtResource("2_pxy6e")
+atlas = ExtResource("2_y5q7j")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ht8f"]
-atlas = ExtResource("2_pxy6e")
+atlas = ExtResource("2_y5q7j")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_khrtw"]
-atlas = ExtResource("2_pxy6e")
+atlas = ExtResource("2_y5q7j")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_000xv"]
-atlas = ExtResource("2_pxy6e")
+atlas = ExtResource("2_y5q7j")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mb3xy"]
@@ -44,9 +44,9 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_appt4"]
 
-[node name="EvilSeven" type="CharacterBody2D" unique_id=1312135262 groups=["enemy", "evil"]]
-script = ExtResource("1_appt4")
-type_of_attack = "scooter"
+[node name="Damager" type="CharacterBody2D" unique_id=1312135262 groups=["enemy"]]
+script = ExtResource("1_jjkop")
+type_of_attack = "damager"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852068731]
 shape = SubResource("CircleShape2D_pxy6e")

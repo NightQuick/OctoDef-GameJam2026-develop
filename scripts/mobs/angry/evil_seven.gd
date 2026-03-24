@@ -8,20 +8,27 @@ var self_health : int             #Собственное здоровье
 var self_health_before : int      #Изначальное здоровье
 var self_damage : int             #Собственый дамаг   
 
-@onready var NavigationAgent: NavigationAgent2D = $NavigationAgent2D
+@onready var NavigationAgent: NavigationAgent2D = find_child("NavigationAgent2D", true, false)
+ 
 var mouse_position = Vector2(0, 0) 
 var selected_type_attack
 
 func _ready() -> void:
 	match type_of_attack:
 		"tank": print(name, ": создан класс танк"); selected_type_attack = type_of_attack;\
-		self_speed = 10; self_health = 500; self_damage = 20
+		self_speed = 10;\
+		self_health = 500;\
+		self_damage = 20
 
 		"scooter": print(name, ": создан класс скутер"); selected_type_attack = type_of_attack;\
-		self_speed = 40; self_health = 50; self_damage = 10
+		self_speed = 40;\
+		self_health = 50;\
+		self_damage = 10
 
 		"damager": print(name, ": создан класс дамагер"); selected_type_attack = type_of_attack;\
-		self_speed = 10; self_health = 20; self_damage = 35
+		self_speed = 20;\
+		self_health = 20;\
+		self_damage = 35
 
 		_: printerr(name, ":не выбран тип атаки юнита ", self); get_tree().quit();
 
