@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var tower_id: String = ''
-@export var base_id: String = ''
+@export var body_id: String = ''
 @export var module_id: String = ''
 
 @export var aggr_range: float = 0
@@ -14,13 +14,17 @@ var enemy_in_range: Array = []
 var target
 
 func _ready() -> void:
+	if tower_id and body_id:
+		SmartTowers.math_stats(self)
 	z_index = global_position.y
-	SmartTowers.math_stats(self)
-	print("Радиус ", aggr_range, " Урон ", attack_damage, " Скорость ", attack_speed, " Хп ", max_health)
+	$Body/Range.scale *= aggr_range
+	self_health = max_health
+	$Attack.wait_time = attack_speed
 
 func _physics_process(_delta: float) -> void:
-	if enemy_in_range:
-		SmartTowers.rotate_head(self, enemy_in_range[0], $Head)
+	if enemy_in_range and tower_id and body_id:
+		target = SmartTowers.select_target(self)
+		SmartTowers.rotate_head(self, target, $Head)
 
 func _on_body_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
@@ -31,4 +35,6 @@ func _on_body_body_exited(body: Node2D) -> void:
 		enemy_in_range.erase(body)
 
 func _on_attack_timeout() -> void:
-	pass
+	if enemy_in_range and tower_id and body_id:
+		SmartTowers.attack(self, target)
+		SmartTowers.attack_anim(self, $Head)

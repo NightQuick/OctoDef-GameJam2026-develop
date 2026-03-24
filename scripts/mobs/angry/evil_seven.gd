@@ -4,9 +4,11 @@ extends CharacterBody2D
 @export_enum("tank", "scooter", "damager") var type_of_attack : String
 
 var self_speed : int              #Собственная скорость
+var self_speed_before : int       #Bpyfxfkmyfz скорость
 var self_health : int             #Собственное здоровье
 var self_health_before : int      #Изначальное здоровье
 var self_damage : int             #Собственый дамаг   
+var effects: Dictionary = {}
 
 @onready var NavigationAgent: NavigationAgent2D = $NavigationAgent2D
 var mouse_position = Vector2(0, 0) 
@@ -26,8 +28,10 @@ func _ready() -> void:
 		_: printerr(name, ":не выбран тип атаки юнита ", self); get_tree().quit();
 
 	self_health_before = self_health 
+	self_speed_before = self_speed
 
 func _physics_process(_delta: float) -> void:
+	Effects.effect(self)
 	
 	z_index = global_position.y
 	evil.die(self)
@@ -36,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:
 		mouse_position = get_global_mouse_position()
 		NavigationAgent.target_position = mouse_position
-		print(name, ": установлена новая цель - ", mouse_position)
+		#print(name, ": установлена новая цель - ", mouse_position)
 
 	#var base_cords = Constants.base_cords[0]
 	#NavigationAgent.target_position = base_cords
@@ -55,7 +59,7 @@ func _physics_process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("mouse_right_button"):
 		NavigationAgent.target_position = global_position
-		print(name, ": Цель отменена.")
+		#print(name, ": Цель отменена.")
 
 
 	match selected_type_attack:

@@ -6,6 +6,10 @@ var towers: Dictionary = {
 			"stats":{
 				"attack_damage" = 4,
 				"attack_speed" = 1
+			},
+			"target":{
+				"val" = 1,
+				"sort" = "first"
 			}
 		},
 	"bubblegun":
@@ -13,6 +17,10 @@ var towers: Dictionary = {
 			"stats":{
 				"attack_damage" = 1,
 				"attack_speed" = .4
+			},
+			"target":{
+				"val" = 1,
+				"sort" = "first"
 			}
 		},
 	"whirlpool":
@@ -20,11 +28,18 @@ var towers: Dictionary = {
 			"stats":{
 				"attack_damage" = 5,
 				"attack_speed" = 1.8
+			},
+			"target":{
+				"val" = 1,
+				"sort" = "last"
+			},
+			"effects":{
+				"slow": [4, 10]
 			}
 		}
 }
 
-var base: Dictionary = {
+var bodies: Dictionary = {
 	"base":
 		{
 			"stats":{

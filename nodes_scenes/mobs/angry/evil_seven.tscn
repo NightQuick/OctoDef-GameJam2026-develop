@@ -46,7 +46,7 @@ animations = [{
 
 [node name="EvilSeven" type="CharacterBody2D" unique_id=1312135262 groups=["enemy"]]
 script = ExtResource("1_appt4")
-type_of_attack = "tank"
+type_of_attack = "scooter"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852068731]
 shape = SubResource("CircleShape2D_pxy6e")
