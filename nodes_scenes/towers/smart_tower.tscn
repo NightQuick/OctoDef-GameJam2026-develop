@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://di84ufvleunuy"]
+
+[ext_resource type="Script" uid="uid://bjmv0x3haqy5n" path="res://scripts/towers/smart_tower.gd" id="1_b63jk"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_loehv"]
+points = PackedVector2Array(5.707107, 5.606603, -11.263458, 11.263458, -5.606603, -5.707107, 11.363962, -11.363962)
+
+[node name="SmartTower" type="Node2D" unique_id=1113452276 groups=["tower"]]
+script = ExtResource("1_b63jk")
+tower_id = null
+base_id = null
+module_id = null
+aggr_range = null
+attack_damage = null
+attack_speed = null
+self_health = null
+
+[node name="Body" type="Area2D" parent="." unique_id=1220535552]
+
+[node name="Range" type="CollisionShape2D" parent="Body" unique_id=1544899929]
+position = Vector2(0, 8.000001)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("ConvexPolygonShape2D_loehv")
+
+[node name="Texture" type="Sprite2D" parent="Body" unique_id=1777919590]
+
+[node name="Head" type="Sprite2D" parent="." unique_id=1357277521]
+position = Vector2(0, -19)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Module" type="Sprite2D" parent="." unique_id=977823868]
+
+[node name="Attack" type="Timer" parent="." unique_id=661568946]
+
+[connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]
+[connection signal="body_exited" from="Body" to="." method="_on_body_body_exited"]
+[connection signal="timeout" from="Attack" to="." method="_on_attack_timeout"]
