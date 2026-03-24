@@ -9,7 +9,8 @@ var self_health_before : int      #Изначальное здоровье
 var self_damage : int             #Собственый дамаг   
 
 @onready var NavigationAgent: NavigationAgent2D = find_child("NavigationAgent2D", true, false)
- 
+@onready var tile_map_layer: TileMapLayer = get_tree().current_scene.find_child("TileMapLayer", true, false)
+
 var mouse_position = Vector2(0, 0) 
 var selected_type_attack
 
@@ -33,7 +34,27 @@ func _ready() -> void:
 		_: printerr(name, ":не выбран тип атаки юнита ", self); get_tree().quit();
 
 	self_health_before = self_health 
+	
+	
+	
+	var nearest_point = null
+	var nearest_distance = INF
 
+	if edit_tile.cords_targets != null and edit_tile.cords_targets.size() > 0:
+		for point in edit_tile.cords_targets:
+			point = tile_map_layer.map_to_local(point)
+			print('GLOBAL POS: ', global_position)
+			print('POINT POS:  ', point)
+			var distance = global_position.distance_to(point)
+			if distance < nearest_distance:
+				nearest_distance = distance
+				nearest_point = point
+				print(nearest_point)
+				
+	# nearest_point теперь содержит координаты ближайшей точки
+	if nearest_point != null:
+		NavigationAgent.target_position = nearest_point
+	
 func _physics_process(_delta: float) -> void:
 	
 	z_index = global_position.y

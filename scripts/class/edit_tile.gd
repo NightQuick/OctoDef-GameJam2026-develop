@@ -1,8 +1,17 @@
 class_name edit_tile
 
+static var cords_spawners
+static var cords_targets
+
+
 static func convert_cords(possition: Vector2, GettingTileMap: TileMapLayer) -> Vector2i:
 	var correct_possition = GettingTileMap.map_to_local(possition)
 	return correct_possition
+
+static func convert_cords_to_global(possition: Vector2, GettingTileMap: TileMapLayer) -> Vector2i:
+	var correct_possition = GettingTileMap.to_global(possition)
+	return correct_possition
+
 
 #Hopper
 static func place_selected_node(tree_scene, possition: Vector2, placed_node: PackedScene, GettingTileMap: TileMapLayer):

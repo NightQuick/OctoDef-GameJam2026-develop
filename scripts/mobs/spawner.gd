@@ -9,6 +9,7 @@ var m2 = scenes_path.damager
 var m3 = scenes_path.tank
 
 func _ready() -> void:
+	print(self.position, ' GLOBALNIE COORDINATI')
 	mobs_list = [
 		[m1, m2, m1, m1],
 		[m2, m2, m3, m3],
@@ -26,9 +27,8 @@ func spawning(mobs_list: Array, waves: int, time: float):
 			await get_tree().create_timer(time).timeout
 			print("Прошла ",  time, "  секунд")
 			var current_mob = mobs_list[i][j].instantiate()
+			current_mob.global_position = self.global_position
 			get_tree().current_scene.add_child(current_mob)
-			current_mob.position = self.position
-			print(current_mob.name) 
 		await wait_for_enemies_clear()
 
 func wait_for_enemies_clear():
