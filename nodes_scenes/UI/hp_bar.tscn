@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://uqsqge8mm7ym"]
+
+[ext_resource type="Texture2D" uid="uid://cera7yd2wdjnn" path="res://textures/UI/hp-progress.png" id="1_yutt7"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" unique_id=1182950420]
+offset_left = -16.0
+offset_top = -27.0
+offset_right = 16.0
+offset_bottom = -23.0
+value = 100.0
+fill_mode = 6
+texture_progress = ExtResource("1_yutt7")

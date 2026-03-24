@@ -9,7 +9,6 @@ var self_health_before : int      #Изначальное здоровье
 var self_damage : int             #Собственый дамаг   
 
 @onready var NavigationAgent: NavigationAgent2D = $NavigationAgent2D
-@onready var hp_bar : TextureProgressBar = $TextureProgressBar
 var mouse_position = Vector2(0, 0) 
 var selected_type_attack
 
@@ -31,7 +30,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	
 	z_index = global_position.y
-	evil.die(self, hp_bar)
+	evil.die(self)
 	
 	
 	if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:

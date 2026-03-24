@@ -126,6 +126,7 @@ script = ExtResource("1_fx2u4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body" unique_id=991104840]
 sprite_frames = SubResource("SpriteFrames_f07ag")
+autoplay = "default"
 
 [node name="Range" type="CollisionShape2D" parent="Body" unique_id=1452637854]
 position = Vector2(0, 8)

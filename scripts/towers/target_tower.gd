@@ -19,7 +19,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if self_health <= 0:
 		queue_free()
-
+	evil.die(self)
 func _on_body_body_entered(body: Node2D) -> void:
 	print(111)
 	if body.is_in_group("enemy"):

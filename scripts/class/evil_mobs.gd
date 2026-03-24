@@ -1,19 +1,24 @@
-#ПОКА ТЕСТОВЫЙ СКРИПТ НИЧЕГО НЕ ИСПОЛЬЗУЕТСЯ
 class_name evil
-
 extends Node2D
 
-#var self_speed : int = 20         #Собственная скорость
-#var self_heath : int = 100        #Собственное здоровье
-#var self_damage : int = 10        #Собственый дамаг
-
-
-static func die(body, hp_bar = TextureProgressBar):
+static func die(body):
+	var hp_bar = body.get_node_or_null("HPBar")
+	if not hp_bar:
+			hp_bar = scenes_path.hp_bar.instantiate()
+			hp_bar.name = "HPBar"
+			body.add_child(hp_bar)
+			# Убеждаемся, что это правильный тип
+			await body.ready
 	
-	if body.self_health != body.self_health_before:  
+	if body.self_health == body.self_health_before:
+		hp_bar.visible = false
+	else: 
+		hp_bar.visible = true 
+		
+	if body.self_health != body.self_health_before: 
 		var health_percentage = (float(body.self_health) / float(body.self_health_before)) * 100
 	
-		body.hp_bar.value = health_percentage
+		hp_bar.value = health_percentage
 		print(body.name, 'Здоровье до: ', body.self_health_before)
 		print(body.name, 'Здоровье после: ', body.self_health)
 		print(body.name, 'Процент здоровья: ', health_percentage)
