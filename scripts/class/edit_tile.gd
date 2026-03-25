@@ -1,8 +1,17 @@
 class_name edit_tile
 
+static var cords_spawners
+static var cords_targets
+
+
 static func convert_cords(possition: Vector2, GettingTileMap: TileMapLayer) -> Vector2i:
 	var correct_possition = GettingTileMap.map_to_local(possition)
 	return correct_possition
+
+static func convert_cords_to_global(possition: Vector2, GettingTileMap: TileMapLayer) -> Vector2i:
+	var correct_possition = GettingTileMap.to_global(possition)
+	return correct_possition
+
 
 #Hopper
 static func place_selected_node(tree_scene, possition: Vector2, placed_node: PackedScene, GettingTileMap: TileMapLayer):
@@ -11,8 +20,9 @@ static func place_selected_node(tree_scene, possition: Vector2, placed_node: Pac
 	node.global_position = correct_possition
 	node.global_position.y -= 8
 	tree_scene.add_child(node)
+	
 	#print(correct_possition, " - possition of tower")
-	print(node.position, ' - позиция заспавненной ноды')
+	#print(node.position, ' - позиция заспавненной ноды')
 
 #Hopper: Находит на карте из определенного атласа все конкретные тайлы по передаваемому id 
 static func find_tiles_by_id(id_atlas : int, need_tiles : Vector2i, TMap : TileMapLayer) -> Array:

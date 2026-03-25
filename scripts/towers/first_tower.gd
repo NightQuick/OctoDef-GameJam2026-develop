@@ -1,14 +1,16 @@
 extends Node2D
 
 @export var aggr_range: float = 3
-@export var attack_damage: float = 10
-@export var attack_speed: float = 1 #МАКСИМАЛЬНАЯ СКОРОСТЬ АТАКИ 0.3... иначе анимащия сдохнет
+@export var attack_damage: float = 10000
+@export var attack_speed: float = 1                          #МАКСИМАЛЬНАЯ СКОРОСТЬ АТАКИ 0.3... иначе анимащия сдохнет
 
 var enemy_in_range: Array = []
 var target
 
 func _ready() -> void:
+	z_index = global_position.y
 	$Body/Range.scale = $Body/Range.scale*aggr_range
+	$Attack.wait_time = attack_speed
 
 func _process(_delta: float) -> void:
 	if len(enemy_in_range) != 0:
@@ -21,9 +23,10 @@ func _process(_delta: float) -> void:
 	else:
 		$Attack.stop()
 
+
 func _on_body_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
-		enemy_in_range.append(body)
+		enemy_in_range.append(body)      
 
 func _on_body_body_exited(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
@@ -53,8 +56,7 @@ func rotate_head():
 
 func _on_attack_timeout() -> void:
 	target.self_health -= attack_damage
-	  
-	print("Здоровье   ", target.name, ": ", target.self_health)
+	#print("Здоровье   ", target.name, ": ", target.self_health)
 	
 	var shoot_anim = create_tween()
 	var head_pos = $Head.position
@@ -83,4 +85,3 @@ func _on_attack_timeout() -> void:
 		224.0:
 			shoot_anim.tween_property($Head, "position", Vector2(head_pos.x, head_pos.y-3), .1)
 			shoot_anim.tween_property($Head, "position", head_pos, .2)
-		

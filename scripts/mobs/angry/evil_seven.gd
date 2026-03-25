@@ -3,44 +3,53 @@ extends CharacterBody2D
 @export_category("КАСТОМНЫЕ НАСТРОЙКИ") 
 @export_enum("tank", "scooter", "damager") var type_of_attack : String
 
-var self_speed : int = 20         #Собственная скорость
-var self_health : int = 100       #Собственное здоровье
-var self_health_before : int
-var self_damage : int = 10        #Собственый дамаг
+var self_speed : int              #Собственная скорость
+var self_speed_before : int       #Bpyfxfkmyfz скорость
+var self_health : int             #Собственное здоровье
+var self_health_before : int      #Изначальное здоровье
+var self_damage : int             #Собственый дамаг   
+var effects: Dictionary = {}
 
-@onready var NavigationAgent: NavigationAgent2D = $NavigationAgent2D
-@onready var hp_bar : TextureProgressBar = $TextureProgressBar
+@onready var NavigationAgent: NavigationAgent2D = find_child("NavigationAgent2D", true, false)
+@onready var tile_map_layer: TileMapLayer = get_tree().current_scene.find_child("TileMapLayer", true, false)
+
 var mouse_position = Vector2(0, 0) 
 var selected_type_attack
 
 func _ready() -> void:
-	
-
-	
 	match type_of_attack:
 		"tank": print(name, ": создан класс танк"); selected_type_attack = type_of_attack;\
-		self_speed = 10; self_health = 500; self_damage = 20
+		self_speed = 10;\
+		self_health = 500;\
+		self_damage = 20
 
 		"scooter": print(name, ": создан класс скутер"); selected_type_attack = type_of_attack;\
-		self_speed = 40; self_health = 50; self_damage = 10
+		self_speed = 40;\
+		self_health = 50;\
+		self_damage = 10
 
 		"damager": print(name, ": создан класс дамагер"); selected_type_attack = type_of_attack;\
-		self_speed = 10; self_health = 20; self_damage = 35
+		self_speed = 20;\
+		self_health = 20;\
+		self_damage = 35
 
 		_: printerr(name, ":не выбран тип атаки юнита ", self); get_tree().quit();
 
-	self_health_before = self_health
+	self_health_before = self_health 
+	nearest_target()
+	self_speed_before = self_speed
 
+	
 func _physics_process(_delta: float) -> void:
+	Effects.effect(self)
 	
 	z_index = global_position.y
-#	
-	die()
+	evil.die(self)
 	
 	if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:
 		mouse_position = get_global_mouse_position()
 		NavigationAgent.target_position = mouse_position
-		print(name, ": установлена новая цель - ", mouse_position)
+		#print(name, ": установлена новая цель - ", mouse_position)
 
 	#var base_cords = Constants.base_cords[0]
 	#NavigationAgent.target_position = base_cords
@@ -48,6 +57,10 @@ func _physics_process(_delta: float) -> void:
 	var self_position = global_position                                            #Позиция моба
 	var next_path_position = NavigationAgent.get_next_path_position()              #Путь к следующей позиции моба
 	var new_velocity = self_position.direction_to(next_path_position) * self_speed #
+
+	if edit_tile.cords_targets == []:
+		NavigationAgent.set_target_position(global_position) 
+		return
 
 	if NavigationAgent.is_navigation_finished():
 		return 
@@ -59,7 +72,7 @@ func _physics_process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("mouse_right_button"):
 		NavigationAgent.target_position = global_position
-		print(name, ": Цель отменена.")
+		#print(name, ": Цель отменена.")
 
 
 	match selected_type_attack:
@@ -73,25 +86,36 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func die():
-	
-	if self_health != self_health_before:  
-		var процент = (float(self_health) / float(self_health_before)) * 100
-	
-		hp_bar.value = процент
-		print('&&& ', self_health)
-		print('!!! ', self_health_before)
-		print(процент)
-	
-	if self_health <= 0:
-		print(name, ' УМЕР.')
-		queue_free()
-
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 
+func nearest_target():
+	if not is_inside_tree():
+				return
+	await get_tree().process_frame
+	var nearest_point = null
+	var nearest_distance = INF
+
+	if edit_tile.cords_targets != null and edit_tile.cords_targets.size() > 0:
+		for point in edit_tile.cords_targets:
+			point = tile_map_layer.map_to_local(point)
+			var distance = global_position.distance_to(point)
+			if distance < nearest_distance:
+				nearest_distance = distance
+				nearest_point = point
+				
+	# nearest_point теперь содержит координаты ближайшей точки
+	if nearest_point != null:
+		NavigationAgent.target_position = nearest_point
+		
+		if not is_inside_tree():
+				return
+		await get_tree().create_timer(5.0).timeout
+		nearest_target()
+
+
 func TankFunc():
-	pass
+	pass    
 
 func ScooterFunc():
 	pass

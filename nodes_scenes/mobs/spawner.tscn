@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d1hhuxpcuc5pr"]
+
+[ext_resource type="Texture2D" uid="uid://dv3qdku1qkoby" path="res://textures/towers/7-test.jpg" id="1_42qd5"]
+[ext_resource type="Script" uid="uid://chaqyjmd4td5d" path="res://scripts/mobs/spawner.gd" id="1_pjhtt"]
+
+[node name="Spawner" type="Node2D" unique_id=453842699 groups=["enemy"]]
+script = ExtResource("1_pjhtt")
+
+[node name="7Test" type="Sprite2D" parent="." unique_id=951426103]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_42qd5")
