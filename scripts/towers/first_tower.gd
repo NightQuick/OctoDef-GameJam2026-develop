@@ -2,7 +2,7 @@ extends Node2D
 
 @export var aggr_range: float = 3
 @export var attack_damage: float = 10000
-@export var attack_speed: float = 1 #МАКСИМАЛЬНАЯ СКОРОСТЬ АТАКИ 0.3... иначе анимащия сдохнет
+@export var attack_speed: float = 1                          #МАКСИМАЛЬНАЯ СКОРОСТЬ АТАКИ 0.3... иначе анимащия сдохнет
 
 var enemy_in_range: Array = []
 var target
@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 
 func _on_body_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
-		enemy_in_range.append(body)
+		enemy_in_range.append(body)      
 
 func _on_body_body_exited(body: Node2D) -> void:
 	if body.is_in_group("enemy"):

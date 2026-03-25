@@ -9,6 +9,7 @@ points = PackedVector2Array(5.707107, 5.606603, -11.263458, 11.263458, -5.606603
 
 [node name="FirstTower" type="Node2D" unique_id=1113452276 groups=["tower"]]
 script = ExtResource("1_x8uyy")
+attack_damage = 10.0
 
 [node name="Body" type="Area2D" parent="." unique_id=1220535552]
 

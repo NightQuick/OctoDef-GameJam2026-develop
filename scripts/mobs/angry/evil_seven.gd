@@ -42,7 +42,6 @@ func _physics_process(_delta: float) -> void:
 	z_index = global_position.y
 	evil.die(self)
 	
-	
 	if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:
 		mouse_position = get_global_mouse_position()
 		NavigationAgent.target_position = mouse_position
@@ -54,6 +53,10 @@ func _physics_process(_delta: float) -> void:
 	var self_position = global_position                                            #Позиция моба
 	var next_path_position = NavigationAgent.get_next_path_position()              #Путь к следующей позиции моба
 	var new_velocity = self_position.direction_to(next_path_position) * self_speed #
+
+	if edit_tile.cords_targets == []:
+		NavigationAgent.set_target_position(global_position) 
+		return
 
 	if NavigationAgent.is_navigation_finished():
 		return 

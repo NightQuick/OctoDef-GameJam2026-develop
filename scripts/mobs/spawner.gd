@@ -13,14 +13,14 @@ var m2 = scenes_path.damager
 var m3 = scenes_path.tank
 
 func _ready() -> void:
-	#print(self.position, ' GLOBALNIE COORDINATI')
+	#print(self.position, ' GLOBALNIE COORDINATI')   # ОТЛАДКА
 	mobs_list = [
-		#[m1, m2, m1, m1],
-		#[m2, m2, m3, m3],
-		#[m3, m3, m3, m3],
-		#[m1, m2, m1, m1],
-		#[m2, m2, m3, m3],
-		#[m3, m3, m3, m3], 
+		[m1, m2, m1, m1],
+		[m2, m2, m3, m3],
+		[m3, m3, m3, m3],
+		[m1, m2, m1, m1],
+		[m2, m2, m3, m3],
+		[m3, m3, m3, m3], 
 		[m1], [m2], [m3]
 	]
 	_is_mob_list_end_ = false

@@ -38,5 +38,6 @@ static func die(body):
 			tile_map_layer.set_cell(cell_pos, source_id, atlas_coords)
 			print(cell_pos, 'sravnenie ', source_id, atlas_coords)
 		print(body.name,  ' УМЕР.')
-		level_script.cords_objects()
+		
 		body.queue_free()
+		level_script.cords_objects()
