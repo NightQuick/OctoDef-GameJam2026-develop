@@ -36,11 +36,8 @@ static func rotate_head(Tower: Node, target: Node, head: Node):
 static func attack(Tower: Node, target: Node):
 	target.self_health -= Tower.attack_damage
 	if ChastiBashen.towers[Tower.tower_id].has("effects"):
-		print("Эффект в башне есть")
-		#var effects_keys = .effects.keys()
 		for eff in ChastiBashen.towers[Tower.tower_id].effects:
-			target.effects[eff] = ChastiBashen.towers[Tower.tower_id].effects[eff]
-			print(target.effects)
+			target.effects[eff] = ChastiBashen.towers[Tower.tower_id].effects[eff].duplicate()
 
 static func attack_anim(Tower: Node, head: Node):
 	var shoot_anim = Tower.create_tween()
