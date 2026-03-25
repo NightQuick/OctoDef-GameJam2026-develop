@@ -30,7 +30,7 @@ follow_viewport = false
 script = ExtResource("3_w701i")
 
 [node name="testParallaxLayer" type="Sprite2D" parent="Parallax" unique_id=1927328825]
-position = Vector2(696, 408)
+position = Vector2(960, 540)
 scale = Vector2(3, 2.9760416)
 texture = ExtResource("5_m8lbv")
 

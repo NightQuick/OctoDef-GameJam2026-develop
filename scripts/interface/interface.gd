@@ -1,4 +1,7 @@
 extends CanvasLayer
+@onready var categoryButtons:Dictionary={$downButtons/categories/conveyors:'conveyors',
+$downButtons/categories/processing:'processing',
+$downButtons/categories/construct:'construct'}
 @onready var listPosition= preload("res://nodes_scenes/interface/resourceNode.tscn")
 @onready var lists: Dictionary={
 	$towerOpener:[$towerList,false],
@@ -15,8 +18,6 @@ func _on_listOpener_pressed(button) -> void:
 		lists[button][0].size.y=500
 		lists[button][1]=true
 		print("Развернули список ",lists[button][0].size.y)
-	
-
 
 func _on_ready() -> void:
 	for i in range(0,20):
@@ -24,6 +25,7 @@ func _on_ready() -> void:
 		addPositionToList('Тест Башня','',$towerList/VBoxContainer)
 	for button in lists:
 		button.pressed.connect(_on_listOpener_pressed.bind(button))
+	for 
 
 		
 

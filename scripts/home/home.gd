@@ -24,9 +24,6 @@ func _input(event: InputEvent) -> void:
 		$Camera2D.moveCamera(event.relative.x,event.relative.y)
 
 func _on_ready() -> void:
-	var ui=preload("res://nodes_scenes/interface/canvas_layer.tscn")
-	var newUi= ui.instantiate()
-	$".".add_child(newUi)
 	for building in buildingList:
 		print('привязываем ',building, ' к ',buildingList[building][0])
 		buildingList[building][0].input_event.connect(_on_building_input_event.bind(building))

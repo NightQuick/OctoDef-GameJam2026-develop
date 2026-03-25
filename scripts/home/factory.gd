@@ -3,6 +3,9 @@ extends Node2D
 
 func _on_ready() -> void:
 	print(FactoryGlobal.factoryType)
+	var ui= preload("res://nodes_scenes/interface/canvas_layer.tscn")
+	var newUi= ui.instantiate()
+	$".".add_child(newUi)
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("scroll_up"):

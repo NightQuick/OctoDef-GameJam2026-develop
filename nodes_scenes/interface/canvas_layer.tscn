@@ -42,4 +42,53 @@ offset_bottom = 49.0
 [node name="VBoxContainer" type="VBoxContainer" parent="resourceList" unique_id=1184609525]
 layout_mode = 2
 
+[node name="downButtons" type="CanvasLayer" parent="." unique_id=695693075]
+
+[node name="categories" type="HBoxContainer" parent="downButtons" unique_id=2143242274]
+offset_left = 24.0
+offset_top = 1024.0
+offset_right = 656.0
+offset_bottom = 1064.0
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="conveyors" type="Button" parent="downButtons/categories" unique_id=830697427]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "конвейры"
+
+[node name="processing" type="Button" parent="downButtons/categories" unique_id=697528582]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "обработка"
+
+[node name="construct" type="Button" parent="downButtons/categories" unique_id=134951932]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "объединение"
+
+[node name="instruments" type="HBoxContainer" parent="downButtons" unique_id=2085803363]
+offset_left = 1680.0
+offset_top = 1024.0
+offset_right = 1896.0
+offset_bottom = 1064.0
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="move" type="Button" parent="downButtons/instruments" unique_id=782241400]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "move"
+
+[node name="del" type="Button" parent="downButtons/instruments" unique_id=803017362]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "del"
+
+[node name="ColorRect" type="ColorRect" parent="downButtons" unique_id=763457004]
+offset_top = 1080.0
+offset_right = 1920.0
+offset_bottom = 1280.0
+color = Color(0, 0, 0, 0.5019608)
+
 [connection signal="ready" from="." to="." method="_on_ready"]
