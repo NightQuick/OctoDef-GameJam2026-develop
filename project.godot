@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 Constants="*uid://ck0ss4f0jd4aw"
 FactoryGlobal="*uid://dbmc4lfq041pw"
 ChastiBashen="*uid://bhmw7fcpd710y"
+Blueprints="*uid://cdldp7ceg5x41"
 
 [display]
 

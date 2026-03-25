@@ -93,4 +93,4 @@ position = Vector2(282, 45)
 [node name="BattleInventory" parent="." unique_id=1844087348 instance=ExtResource("5_17k8v")]
 
 [node name="SmartTower" parent="." unique_id=1113452276 instance=ExtResource("6_u0glh")]
-position = Vector2(368, 80)
+position = Vector2(208, 96)

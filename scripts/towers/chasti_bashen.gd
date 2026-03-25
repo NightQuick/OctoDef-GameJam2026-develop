@@ -34,7 +34,7 @@ var towers: Dictionary = {
 				"sort" = "last"
 			},
 			"effects":{
-				"slow": [4, 35]
+				"slow": [4, 0.8]
 			}
 		}
 }

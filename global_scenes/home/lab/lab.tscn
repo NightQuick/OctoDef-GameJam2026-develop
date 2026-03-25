@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://coox0kwa5q0k6"]
+
+[ext_resource type="Script" uid="uid://7copp3g30fnf" path="res://scripts/home/lab/lab.gd" id="1_jmslq"]
+[ext_resource type="Texture2D" uid="uid://bnwu1867dyk2b" path="res://textures/blueprints/blueprint_elements.png" id="2_cuyil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2hwr"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdso7"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b33l2"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq5va"]
+size = Vector2(128, 128)
+
+[node name="Lab" type="Node2D" unique_id=1371299590]
+script = ExtResource("1_jmslq")
+
+[node name="ParentPrint" type="Node2D" parent="." unique_id=1663148153]
+position = Vector2(0, 250)
+
+[node name="ParentPrintTower" type="Sprite2D" parent="ParentPrint" unique_id=973615282]
+position = Vector2(128, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("2_cuyil")
+region_enabled = true
+region_rect = Rect2(128, 0, 128, 128)
+
+[node name="ParentAreaTower" type="Area2D" parent="ParentPrint/ParentPrintTower" unique_id=1248471873 groups=["Parent"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParentPrint/ParentPrintTower/ParentAreaTower" unique_id=44789346]
+shape = SubResource("RectangleShape2D_g2hwr")
+
+[node name="ParentPrintBody" type="Sprite2D" parent="ParentPrint" unique_id=679480283]
+position = Vector2(128, 384)
+scale = Vector2(2, 2)
+texture = ExtResource("2_cuyil")
+region_enabled = true
+region_rect = Rect2(256, 0, 128, 128)
+
+[node name="ParentAreaBody" type="Area2D" parent="ParentPrint/ParentPrintBody" unique_id=1862581577 groups=["Parent"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParentPrint/ParentPrintBody/ParentAreaBody" unique_id=781939402]
+shape = SubResource("RectangleShape2D_jdso7")
+
+[node name="ParentPrintModule1" type="Sprite2D" parent="ParentPrint" unique_id=328848503]
+position = Vector2(384, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("2_cuyil")
+region_enabled = true
+region_rect = Rect2(384, 0, 128, 128)
+
+[node name="ParentAreaModule1" type="Area2D" parent="ParentPrint/ParentPrintModule1" unique_id=1468875983 groups=["Parent"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParentPrint/ParentPrintModule1/ParentAreaModule1" unique_id=1628485254]
+shape = SubResource("RectangleShape2D_b33l2")
+
+[node name="ParentPrintModule2" type="Sprite2D" parent="ParentPrint" unique_id=1406716418]
+position = Vector2(384, 384)
+scale = Vector2(2, 2)
+texture = ExtResource("2_cuyil")
+region_enabled = true
+region_rect = Rect2(384, 0, 128, 128)
+
+[node name="ParentAreaModule2" type="Area2D" parent="ParentPrint/ParentPrintModule2" unique_id=303425435 groups=["Parent"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParentPrint/ParentPrintModule2/ParentAreaModule2" unique_id=9374297]
+shape = SubResource("RectangleShape2D_kq5va")
+
+[node name="Previous" type="Button" parent="ParentPrint" unique_id=1528386107]
+offset_top = 512.0
+offset_right = 46.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 67
+text = "<"
+
+[node name="Next" type="Button" parent="ParentPrint" unique_id=1584832224]
+offset_left = 466.0
+offset_top = 512.0
+offset_right = 512.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 67
+text = ">"
+
+[node name="ChildPrint" type="Node2D" parent="." unique_id=1486707472]
+position = Vector2(1408, 250)
+
+[node name="ChildPrintTower" type="Sprite2D" parent="ChildPrint" unique_id=1096572958]
+position = Vector2(128, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("2_cuyil")
+region_enabled = true
+region_rect = Rect2(128, 0, 128, 128)
+
+[node name="ChildAreaTower" type="Area2D" parent="ChildPrint/ChildPrintTower" unique_id=573148668 groups=["Child"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChildPrint/ChildPrintTower/ChildAreaTower" unique_id=1398228124]
+shape = SubResource("RectangleShape2D_g2hwr")
+
+[node name="ChildPrintBody" type="Sprite2D" parent="ChildPrint" unique_id=1903359657]
+position = Vector2(128, 384)
+scale = Vector2(2, 2)
+texture = ExtResource("2_cuyil")
+region_enabled = true
+region_rect = Rect2(256, 0, 128, 128)
+
+[node name="ChildAreaBody" type="Area2D" parent="ChildPrint/ChildPrintBody" unique_id=212734886 groups=["Child"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChildPrint/ChildPrintBody/ChildAreaBody" unique_id=316054995]
+shape = SubResource("RectangleShape2D_g2hwr")
+
+[node name="ChildPrintModule1" type="Sprite2D" parent="ChildPrint" unique_id=715129542]
+position = Vector2(384, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("2_cuyil")
+region_enabled = true
+region_rect = Rect2(384, 0, 128, 128)
+
+[node name="ChildAreaModule1" type="Area2D" parent="ChildPrint/ChildPrintModule1" unique_id=225154940 groups=["Child"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChildPrint/ChildPrintModule1/ChildAreaModule1" unique_id=376083470]
+shape = SubResource("RectangleShape2D_g2hwr")
+
+[node name="ChildPrintModule2" type="Sprite2D" parent="ChildPrint" unique_id=335737578]
+position = Vector2(384, 384)
+scale = Vector2(2, 2)
+texture = ExtResource("2_cuyil")
+region_enabled = true
+region_rect = Rect2(384, 0, 128, 128)
+
+[node name="ChildAreaModule2" type="Area2D" parent="ChildPrint/ChildPrintModule2" unique_id=515936047 groups=["Child"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChildPrint/ChildPrintModule2/ChildAreaModule2" unique_id=2013595320]
+shape = SubResource("RectangleShape2D_g2hwr")
+
+[node name="Previous" type="Button" parent="ChildPrint" unique_id=1961978403]
+offset_top = 512.0
+offset_right = 46.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 67
+text = "<"
+
+[node name="Next" type="Button" parent="ChildPrint" unique_id=299256104]
+offset_left = 466.0
+offset_top = 512.0
+offset_right = 512.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 67
+text = ">"
+
+[node name="Done" type="Button" parent="." unique_id=53869063]
+offset_left = 831.0
+offset_top = 891.0
+offset_right = 1073.0
+offset_bottom = 991.0
+theme_override_font_sizes/font_size = 67
+text = "Готово"
+
+[node name="LabelOutput" type="Label" parent="." unique_id=109313539]
+offset_left = 512.0
+offset_top = 250.0
+offset_right = 1408.0
+offset_bottom = 891.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="LabelChild" type="Label" parent="." unique_id=1016276005]
+offset_left = 1322.0
+offset_top = 158.0
+offset_right = 1920.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 67
+text = "Новое поколение"
+
+[node name="LabelParent" type="Label" parent="." unique_id=154686104]
+offset_top = 158.0
+offset_right = 830.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 67
+text = "Предыдущее поколение"
+
+[connection signal="pressed" from="ParentPrint/Previous" to="." method="_on_parent_previous_pressed"]
+[connection signal="pressed" from="ParentPrint/Next" to="." method="_on_parent_next_pressed"]
+[connection signal="pressed" from="ChildPrint/Previous" to="." method="_on_child_previous_pressed"]
+[connection signal="pressed" from="ChildPrint/Next" to="." method="_on_child_next_pressed"]
