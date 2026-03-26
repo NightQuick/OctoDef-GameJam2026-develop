@@ -8,5 +8,14 @@ const listResolutions:Dictionary={
 	"768x768":Vector2i(768,768)
 }
 
+const WAVE_SETTINGS = {
+	"total_waves": 5,
+	"base_difficulty": 10,
+	"difficulty_increase_per_wave": 15,
+	"stat_increase_per_wave": 0.2,  # +20% к статам
+	"speed_increase_per_wave": 0.05,  # +5% к скорости
+	"time_between_spawns": 3.0
+}
+
 var _is_debug_ : bool = true #ПОМЕНЯТЬ К БИЛДУ
 var base_cords : Array
