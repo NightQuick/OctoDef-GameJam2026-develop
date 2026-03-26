@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://cpg0t25xj0qc0"]
 
+[ext_resource type="Script" uid="uid://ctry22ecsb1wy" path="res://scripts/UI/better_settings_scene.gd" id="1_k4erl"]
+[ext_resource type="Texture2D" uid="uid://7u04y4d5wqml" path="res://textures/UI/70619a9655183.560d7bfb8dc17.jpg" id="2_cyvlq"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_5oejm"]
 font_size = 64
+
+[sub_resource type="Theme" id="Theme_cyvlq"]
+default_font_size = 64
 
 [sub_resource type="Theme" id="Theme_k4erl"]
 default_font_size = 64
@@ -13,17 +19,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_k4erl")
+
+[node name="BackGround" type="Sprite2D" parent="." unique_id=1512727772]
+position = Vector2(961.50006, 541.00006)
+scale = Vector2(1.5459678, 1.5444127)
+texture = ExtResource("2_cyvlq")
 
 [node name="full container" type="MarginContainer" parent="." unique_id=1973162863]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = 49.0
+offset_right = -25.0
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="all_objects" type="VBoxContainer" parent="full container" unique_id=572804086]
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 60
 
 [node name="settings_buttons" type="VBoxContainer" parent="full container/all_objects" unique_id=698341880]
 layout_mode = 2
@@ -38,16 +56,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="name_1" type="Label" parent="full container/all_objects/settings_buttons/Sctring_1/Column_1" unique_id=259593272]
+[node name="HBoxContainer" type="HBoxContainer" parent="full container/all_objects/settings_buttons/Sctring_1/Column_1" unique_id=1077337378]
 layout_mode = 2
+
+[node name="name_1" type="Label" parent="full container/all_objects/settings_buttons/Sctring_1/Column_1/HBoxContainer" unique_id=259593272]
+layout_mode = 2
+size_flags_horizontal = 2
 text = "Громкость"
+label_settings = SubResource("LabelSettings_5oejm")
+
+[node name="VolumePrecentage" type="Label" parent="full container/all_objects/settings_buttons/Sctring_1/Column_1/HBoxContainer" unique_id=29813160]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+text = "IDK%"
 label_settings = SubResource("LabelSettings_5oejm")
 
 [node name="Column_2" type="VBoxContainer" parent="full container/all_objects/settings_buttons/Sctring_1" unique_id=1789023696]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DoInput_2" type="HScrollBar" parent="full container/all_objects/settings_buttons/Sctring_1/Column_2" unique_id=1182156975]
+[node name="VolumeSlider" type="HScrollBar" parent="full container/all_objects/settings_buttons/Sctring_1/Column_2" unique_id=1182156975]
 layout_mode = 2
 size_flags_vertical = 3
 page = 10.0
@@ -64,16 +93,17 @@ size_flags_vertical = 4
 
 [node name="name_1" type="Label" parent="full container/all_objects/settings_buttons/Sctring_2/Column_1" unique_id=1660632237]
 layout_mode = 2
-text = "Тест"
+text = "Разрешение экрана"
 label_settings = SubResource("LabelSettings_5oejm")
 
 [node name="Column_2" type="VBoxContainer" parent="full container/all_objects/settings_buttons/Sctring_2" unique_id=425486305]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DoInput_2" type="OptionButton" parent="full container/all_objects/settings_buttons/Sctring_2/Column_2" unique_id=1742918227]
+[node name="ResolutionDropBox" type="OptionButton" parent="full container/all_objects/settings_buttons/Sctring_2/Column_2" unique_id=1883149542]
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_cyvlq")
 
 [node name="Sctring_3" type="HBoxContainer" parent="full container/all_objects/settings_buttons" unique_id=821924445]
 layout_mode = 2
@@ -85,40 +115,55 @@ size_flags_vertical = 4
 
 [node name="name_1" type="Label" parent="full container/all_objects/settings_buttons/Sctring_3/Column_1" unique_id=706308142]
 layout_mode = 2
-text = "Тест"
+text = "Дебаг(пока не существует)"
 label_settings = SubResource("LabelSettings_5oejm")
 
 [node name="Column_2" type="VBoxContainer" parent="full container/all_objects/settings_buttons/Sctring_3" unique_id=1691213785]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DoInput_2" type="CheckBox" parent="full container/all_objects/settings_buttons/Sctring_3/Column_2" unique_id=1870109663]
+[node name="VSyncCheckBox" type="CheckBox" parent="full container/all_objects/settings_buttons/Sctring_3/Column_2" unique_id=1870109663]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="full container/all_objects" unique_id=1236284199]
+[node name="void_container" type="VBoxContainer" parent="full container/all_objects" unique_id=932248268]
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="full container/all_objects/VBoxContainer" unique_id=318184538]
-layout_mode = 2
-size_flags_vertical = 6
-
-[node name="void" type="Label" parent="full container/all_objects/VBoxContainer/HBoxContainer" unique_id=273712997]
+[node name="void" type="Label" parent="full container/all_objects/void_container" unique_id=2103927406]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_5oejm")
 
-[node name="Выход" type="Button" parent="full container/all_objects/VBoxContainer/HBoxContainer" unique_id=1261778053]
+[node name="exit_button" type="VBoxContainer" parent="full container/all_objects" unique_id=1236284199]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="full container/all_objects/exit_button" unique_id=318184538]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="void" type="Label" parent="full container/all_objects/exit_button/HBoxContainer" unique_id=273712997]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_5oejm")
+
+[node name="ExitButton" type="Button" parent="full container/all_objects/exit_button/HBoxContainer" unique_id=1261778053]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_k4erl")
 text = "Выход"
 
-[node name="void2" type="Label" parent="full container/all_objects/VBoxContainer/HBoxContainer" unique_id=1480436692]
+[node name="void2" type="Label" parent="full container/all_objects/exit_button/HBoxContainer" unique_id=1480436692]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_5oejm")
+
+[connection signal="value_changed" from="full container/all_objects/settings_buttons/Sctring_1/Column_2/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="item_selected" from="full container/all_objects/settings_buttons/Sctring_2/Column_2/ResolutionDropBox" to="." method="_on_resolution_drop_box_item_selected"]
+[connection signal="toggled" from="full container/all_objects/settings_buttons/Sctring_3/Column_2/VSyncCheckBox" to="." method="_on_v_sync_check_box_toggled"]
+[connection signal="pressed" from="full container/all_objects/exit_button/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

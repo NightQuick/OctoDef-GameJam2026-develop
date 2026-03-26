@@ -1,5 +1,6 @@
 extends Node2D
 var settings
+
 const listResolutions:Dictionary={
 	"1920x1080":Vector2i(1920,1080),
 	"1280x720":Vector2i(1280,720),

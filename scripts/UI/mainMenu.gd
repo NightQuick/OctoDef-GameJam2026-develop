@@ -11,7 +11,7 @@ func _input(event): if event is InputEventMouseMotion:
 
 
 func _on_settings_button_pressed() -> void:
-	changeScene('settingsScene')
+	changeScene('BetterSettingsScene')
 
 func changeScene(sceneName):
 	var path=str("res://global_scenes/UI/"+ sceneName +".tscn")
