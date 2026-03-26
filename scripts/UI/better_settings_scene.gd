@@ -10,6 +10,7 @@ func _ready() -> void:
 	VolumePrecentage.text = (str(int(VolumeSlider.value)) + '%')
 	for currentResolution in Constants.listResolutions:
 		resolution_dropbox.add_item(currentResolution)
+	
 
 func change_resolution(resolution):
 	
@@ -29,10 +30,8 @@ func _on_v_sync_check_box_toggled(toggled_on: bool) -> void:
 		true:VSyncCheckBox.text = "Вкл."
 		false:VSyncCheckBox.text = "Выкл."
 
-
 func _on_volume_slider_value_changed(value: float) -> void:
 	VolumePrecentage.text = (str(int(value)) + '%')
-
 
 func _on_exit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://global_scenes/UI/mainMenu.tscn")

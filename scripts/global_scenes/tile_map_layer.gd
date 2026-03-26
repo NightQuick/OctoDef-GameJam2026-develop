@@ -20,6 +20,8 @@ func cords_objects():
 	edit_tile.cords_targets = []
 	edit_tile.cords_spawners = edit_tile.find_tiles_by_id(atlas_base_id, tiles_spawner_founding, TMap)
 	edit_tile.cords_targets = edit_tile.find_tiles_by_id(atlas_base_id, tiles_target_founding, TMap)
+	if edit_tile.cords_targets == []:
+		get_tree().change_scene_to_file("res://global_scenes/UI/mainMenu.tscn")
 		
 
 func place_in_tiles(cords_massive, spawning_node):
