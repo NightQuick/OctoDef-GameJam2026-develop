@@ -85,3 +85,4 @@ func _on_attack_timeout() -> void:
 		224.0:
 			shoot_anim.tween_property($Head, "position", Vector2(head_pos.x, head_pos.y-3), .1)
 			shoot_anim.tween_property($Head, "position", head_pos, .2)
+	await 

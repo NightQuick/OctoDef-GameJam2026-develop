@@ -46,10 +46,10 @@ func _physics_process(_delta: float) -> void:
 	z_index = global_position.y
 	evil.die(self)
 	
-	if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:
-		mouse_position = get_global_mouse_position()
-		NavigationAgent.target_position = mouse_position
-		#print(name, ": установлена новая цель - ", mouse_position)
+	#if Input.is_action_just_pressed("ui_accept") and Constants._is_debug_ == true:
+		#mouse_position = get_global_mouse_position()
+		#NavigationAgent.target_position = mouse_position
+		##print(name, ": установлена новая цель - ", mouse_position)
 
 	#var base_cords = Constants.base_cords[0]
 	#NavigationAgent.target_position = base_cords
