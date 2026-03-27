@@ -4,7 +4,7 @@ extends "res://scripts/towers/first_tower.gd"
 @export var body_id: String = ''
 @export var module_id: String = ''
 
-@export var type_tower : String = 'test'
+@onready var type_tower : String
 
 @export var max_health: float = 0
 @export var self_health: float = 0
@@ -18,6 +18,9 @@ func _ready() -> void:
 	$Attack.wait_time = attack_speed
 	
 	match type_tower:
+		_:
+			queue_free()
+		
 		'1':
 			$Head.texture = load("res://textures/towers/towers_head.png")
 			aggr_range = 100.0

@@ -8,6 +8,12 @@ var placeable: bool = true
 var test_tower = preload("res://nodes_scenes/towers/first_tower.tscn")
 @onready var tile_map = $"../TileMapLayer"
 
+@onready var type_tower = {
+	1: 12,  # тип 1: 12 штук
+	2: 32,  # тип 2: 32 штуки
+	3: 5,   # тип 3: 5 штук
+}
+
 func _ready() -> void:
 	pass
 

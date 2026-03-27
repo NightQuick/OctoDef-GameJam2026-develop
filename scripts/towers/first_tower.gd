@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var aggr_range: float = 3
-@export var attack_damage: float = 10000
+@export var attack_damage: float = 10
 @export var attack_speed: float = 1                          #МАКСИМАЛЬНАЯ СКОРОСТЬ АТАКИ 0.3... иначе анимащия сдохнет
 
 var enemy_in_range: Array = []

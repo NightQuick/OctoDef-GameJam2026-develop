@@ -14,7 +14,6 @@ atlas = ExtResource("3_3b8h7")
 script = ExtResource("1_b63jk")
 tower_id = "whirlpool"
 body_id = "base"
-type_tower = "4"
 
 [node name="Body" type="Area2D" parent="." unique_id=1220535552]
 

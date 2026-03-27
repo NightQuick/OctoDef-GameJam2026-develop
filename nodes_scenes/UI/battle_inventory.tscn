@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://b7hhapovqn1le" path="res://textures/UI/slot.png" id="1_mc2tu"]
 [ext_resource type="Script" uid="uid://ccxh0be470kad" path="res://scripts/UI/battle_inventory.gd" id="1_ng0jd"]
-[ext_resource type="Texture2D" uid="uid://bxif4yo3gr5vm" path="res://textures/towers/towers_head.png" id="2_ng0jd"]
 
 [node name="BattleInventory" type="CanvasLayer" unique_id=1844087348]
 script = ExtResource("1_ng0jd")
@@ -18,11 +17,5 @@ offset_top = -17.0
 offset_right = 17.0
 offset_bottom = 17.0
 flat = true
-
-[node name="Texture" type="Sprite2D" parent="SlotTemplate" unique_id=1750552522]
-z_index = 4096
-texture = ExtResource("2_ng0jd")
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
 
 [connection signal="pressed" from="SlotTemplate/SlotTemplate" to="." method="_on_slot_template_pressed"]
