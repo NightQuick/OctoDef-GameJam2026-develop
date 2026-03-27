@@ -1,21 +1,20 @@
 [gd_scene format=3 uid="uid://doaeeshwvxsxl"]
 
-[ext_resource type="Texture2D" uid="uid://b7hhapovqn1le" path="res://textures/UI/slot.png" id="1_mc2tu"]
 [ext_resource type="Script" uid="uid://ccxh0be470kad" path="res://scripts/UI/battle_inventory.gd" id="1_ng0jd"]
 
 [node name="BattleInventory" type="CanvasLayer" unique_id=1844087348]
 script = ExtResource("1_ng0jd")
 
-[node name="SlotTemplate" type="Sprite2D" parent="." unique_id=456034505]
-position = Vector2(1004, 883)
-scale = Vector2(4, 4)
-texture = ExtResource("1_mc2tu")
-
-[node name="SlotTemplate" type="Button" parent="SlotTemplate" unique_id=655111421]
-offset_left = -17.0
-offset_top = -17.0
-offset_right = 17.0
-offset_bottom = 17.0
-flat = true
-
-[connection signal="pressed" from="SlotTemplate/SlotTemplate" to="." method="_on_slot_template_pressed"]
+[node name="SlotsContainer" type="GridContainer" parent="." unique_id=894719827]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 703.0
+offset_right = -11.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
