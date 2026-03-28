@@ -78,14 +78,15 @@ func _on_slot_pressed(tower_type: int):
 
 func _process(_delta: float) -> void:
 	if selected_tower:
-		var mouse_pos = get_tree().current_scene.get_global_mouse_position()
-		var cell_pos = tile_map.local_to_map(mouse_pos)
-		var tower_pos = tile_map.map_to_local(cell_pos)
+		# Используем локальные координаты мыши относительно TileMapLayer
+		var mouse_local_pos = tile_map.get_local_mouse_position()
+		var current_cell_pos = tile_map.local_to_map(mouse_local_pos)
+		var tower_pos = tile_map.map_to_local(current_cell_pos)
 		
 		selected_tower.global_position = tower_pos
 		selected_tower.global_position.y -= 8
 		
-		check_placeable(cell_pos)
+		check_placeable(current_cell_pos)
 		
 		if not placeable:
 			selected_tower.modulate = Color(1.0, 0.0, 0.0, 0.65)
@@ -125,20 +126,22 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("mouse_left_button"):
 		if selected_tower and placeable:
-			place_selected_tower()
+			# Получаем координаты в момент клика через локальные координаты TileMapLayer
+			var click_local_pos = tile_map.get_local_mouse_position()
+			var click_cell_pos = tile_map.local_to_map(click_local_pos)
+			place_selected_tower(click_cell_pos)
 
-func place_selected_tower():
+func place_selected_tower(click_cell_pos: Vector2i):
 	var tower_type = selected_tower_type
-	
-	# Повторная проверка перед установкой
-	var mouse_pos = get_tree().current_scene.get_global_mouse_position()
-	var cell_pos = tile_map.local_to_map(mouse_pos)
 	
 	# Проверяем, свободна ли клетка
 	var scene_towers: Array = get_tree().get_nodes_in_group("tower")
 	for tower in scene_towers:
 		var tower_cell = tile_map.local_to_map(tower.global_position)
-		if tower_cell == cell_pos:
+		print(tower, ' tower_cell:', tower_cell)
+		print(tower, ' click_cell_pos:', click_cell_pos)
+		
+		if tower_cell == click_cell_pos:
 			print("Нельзя установить башню на уже существующую!")
 			selected_tower.queue_free()
 			selected_tower = null
