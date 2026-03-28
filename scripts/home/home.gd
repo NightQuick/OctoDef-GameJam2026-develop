@@ -1,11 +1,7 @@
 extends Node2D
 
 @onready var buildingList:Dictionary={
-	$bichFactoryArea/bichFactory:[$bichFactoryArea,'bich'],
 	$townHallArea/townHall:[$townHallArea,'twn'],
-	$mineArea/mine:[$mineArea,'min'],
-	$detailFactoryArea/detailFactory:[$detailFactoryArea,'det'],
-	$constructionFactoryArea/constructionFactory:[$constructionFactoryArea,'con'],
 	$laboratoryArea/laboratory:[$laboratoryArea,'lab']
 }
 func _physics_process(_delta: float) -> void:
